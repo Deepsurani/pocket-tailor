@@ -11,8 +11,8 @@ const Footer = () => {
               <div className="w-10 h-10 bg-gradient-gold rounded-full flex items-center justify-center shadow-gold">
                 <Scissors className="w-5 h-5 text-primary" />
               </div>
-              <span className="font-serif text-xl font-semibold text-primary-foreground">
-                Pocket Tailor
+              <span className="font-display text-xl font-semibold text-primary-foreground">
+                ThreadSync
               </span>
             </div>
             <p className="text-cream-dark/70 text-sm leading-relaxed">
@@ -64,7 +64,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-cream-dark/60 text-sm">
-            © 2024 Pocket Tailor. All rights reserved.
+            © 2024 ThreadSync. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-cream-dark/60 hover:text-gold transition-colors text-sm">

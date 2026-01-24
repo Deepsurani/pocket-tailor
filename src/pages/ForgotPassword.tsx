@@ -34,7 +34,7 @@ const ForgotPassword = () => {
         {/* Logo */}
         <div className="flex items-center justify-center gap-2 mb-8">
           <Scissors className="h-8 w-8 text-accent" />
-          <span className="font-display text-2xl font-bold text-primary">TailorMatch</span>
+          <span className="font-display text-2xl font-bold text-primary">ThreadSync</span>
         </div>
 
         <Card className="border-border/50 shadow-lg">

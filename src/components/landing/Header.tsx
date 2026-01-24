@@ -14,8 +14,8 @@ const Header = () => {
             <div className="w-10 h-10 bg-gradient-gold rounded-full flex items-center justify-center shadow-gold">
               <Scissors className="w-5 h-5 text-primary" />
             </div>
-            <span className="font-serif text-xl md:text-2xl font-semibold text-foreground">
-              Pocket Tailor
+            <span className="font-display text-xl md:text-2xl font-semibold text-foreground">
+              ThreadSync
             </span>
           </div>
 

@@ -18,6 +18,18 @@
                         sans: ['Outfit', 'sans-serif'],
                     },
                     colors: {
+                        background: 'hsl(40, 30%, 97%)',
+                        foreground: 'hsl(220, 30%, 15%)',
+                        card: { DEFAULT: 'hsl(0, 0%, 100%)', foreground: 'hsl(220, 30%, 15%)' },
+                        popover: { DEFAULT: 'hsl(0, 0%, 100%)', foreground: 'hsl(220, 30%, 15%)' },
+                        primary: { DEFAULT: 'hsl(220, 40%, 20%)', foreground: 'hsl(40, 30%, 97%)' },
+                        secondary: { DEFAULT: 'hsl(40, 25%, 92%)', foreground: 'hsl(220, 30%, 15%)' },
+                        muted: { DEFAULT: 'hsl(40, 20%, 94%)', foreground: 'hsl(220, 15%, 45%)' },
+                        accent: { DEFAULT: 'hsl(38, 75%, 55%)', foreground: 'hsl(220, 40%, 15%)' },
+                        destructive: { DEFAULT: 'hsl(0, 84%, 60%)', foreground: 'hsl(0, 0%, 100%)' },
+                        border: 'hsl(40, 20%, 88%)',
+                        input: 'hsl(40, 20%, 88%)',
+                        ring: 'hsl(220, 40%, 20%)',
                         gold: { DEFAULT: 'hsl(38, 75%, 55%)', light: 'hsl(40, 65%, 70%)' },
                         navy: { DEFAULT: 'hsl(220, 40%, 20%)', light: 'hsl(220, 30%, 35%)' },
                         cream: { DEFAULT: 'hsl(40, 30%, 97%)', dark: 'hsl(40, 25%, 92%)' },
@@ -46,9 +58,9 @@
                 <span class="logo-text">ThreadSync</span>
             </a>
             <nav class="nav-desktop">
-                <a href="index.html" class="nav-link">Home</a>
                 <a href="tailors.html" class="nav-link">Find Tailors</a>
                 <a href="about.html" class="nav-link">About</a>
+                <a href="faq.html" class="nav-link active">FAQ</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
@@ -68,9 +80,9 @@
             </button>
         </div>
         <nav class="mobile-menu hidden">
-            <a href="index.html" class="mobile-nav-link">Home</a>
             <a href="tailors.html" class="mobile-nav-link">Find Tailors</a>
             <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="faq.html" class="mobile-nav-link active">FAQ</a>
             <a href="contact.html" class="mobile-nav-link">Contact</a>
             <div class="mobile-menu-actions">
                 <a href="login.html" class="btn btn-ghost btn-default w-full">Sign In</a>
@@ -254,8 +266,57 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="6" cy="6" r="3"/>
+                                <path d="M8.12 8.12 12 12"/>
+                                <path d="M20 4 8.12 15.88"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <path d="M14.8 14.8 18 18"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">ThreadSync</span>
+                    </a>
+                    <p>Connecting you with skilled tailors for perfect-fit clothing. Quality craftsmanship, conveniently delivered.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Custom Tailoring</a></li>
+                        <li><a href="#">Alterations</a></li>
+                        <li><a href="#">Stitching</a></li>
+                        <li><a href="#">Wedding Attire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="tailors.html">Our Tailors</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <p>© 2024 ThreadSync. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="icon-hover">Facebook</a>
+                    <a href="#" class="icon-hover">Instagram</a>
+                    <a href="#" class="icon-hover">Twitter</a>
+                </div>
             </div>
         </div>
     </footer>

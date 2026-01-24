@@ -34,12 +34,16 @@
     <header class="header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="6" cy="6" r="3"/>
-                    <path d="m6 9 6 6 6-6"/>
-                    <circle cx="18" cy="18" r="3"/>
-                </svg>
-                <span>ThreadSync</span>
+                <div class="logo-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"/>
+                        <path d="M8.12 8.12 12 12"/>
+                        <path d="M20 4 8.12 15.88"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <path d="M14.8 14.8 18 18"/>
+                    </svg>
+                </div>
+                <span class="logo-text">ThreadSync</span>
             </a>
             <nav class="nav-desktop">
                 <a href="index.html" class="nav-link">Home</a>
@@ -48,18 +52,18 @@
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <a href="login.html" class="btn btn-ghost">Sign In</a>
-                <a href="signup.html" class="btn btn-gold">Get Started</a>
+                <a href="login.html" class="btn btn-ghost btn-default">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default">Get Started</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
                 </svg>
                 <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
                 </svg>
             </button>
         </div>
@@ -68,148 +72,180 @@
             <a href="tailors.html" class="mobile-nav-link">Find Tailors</a>
             <a href="about.html" class="mobile-nav-link">About</a>
             <a href="contact.html" class="mobile-nav-link">Contact</a>
-            <a href="login.html" class="mobile-nav-link">Sign In</a>
-            <a href="signup.html" class="btn btn-gold" style="margin-top: 1rem;">Get Started</a>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-ghost btn-default w-full">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default w-full">Get Started</a>
+            </div>
         </nav>
     </header>
 
-    <main class="faq-page">
-        <!-- Hero -->
-        <section class="faq-hero">
+    <main>
+        <!-- Hero Section -->
+        <section class="page-header">
             <div class="container">
                 <h1>Frequently Asked Questions</h1>
-                <p>Find answers to common questions about our services</p>
+                <p>Find answers to common questions about our tailoring services, ordering process, and more.</p>
             </div>
         </section>
 
         <!-- FAQ Content -->
-        <section class="faq-content">
-            <div class="container">
-                <!-- General Questions -->
-                <div class="faq-category">
-                    <h3>General Questions</h3>
+        <section style="padding: 4rem 0 5rem;">
+            <div class="container" style="max-width: 48rem;">
+                <!-- Getting Started -->
+                <div style="margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Getting Started</h2>
                     <div class="accordion">
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                What is ThreadSync?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                How does ThreadSync work?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                ThreadSync is a platform that connects customers with skilled tailors for custom clothing, alterations, and bespoke garments. We verify all tailors on our platform to ensure quality craftsmanship.
+                                ThreadSync connects you with skilled local tailors. Simply browse our verified tailor profiles, compare their specialties and reviews, book an appointment, and get your measurements taken. Your tailor will then create custom-fitted garments just for you.
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                How do I find a tailor?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                How do I find a tailor near me?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Simply browse our tailor directory, filter by specialty, location, or rating, and view detailed profiles including reviews and pricing. Once you find a tailor you like, you can book an appointment directly through our platform.
+                                Once you create an account, you can browse tailors by location, specialty, and customer ratings. Our platform shows you verified tailors in your area along with their portfolios, pricing, and availability.
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                Is ThreadSync free to use?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                Do I need to create an account to use ThreadSync?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Yes, creating an account and browsing tailors is completely free. You only pay for the tailoring services you book. There are no hidden fees or subscription costs for customers.
+                                You can browse tailor profiles without an account, but you'll need to sign up to book appointments, save your measurements, and place orders. Creating an account is free and takes less than a minute.
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Booking Questions -->
-                <div class="faq-category">
-                    <h3>Booking & Appointments</h3>
+                <!-- Measurements & Fittings -->
+                <div style="margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Measurements & Fittings</h2>
                     <div class="accordion">
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                How do I book an appointment?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                How do I get measured?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Select your preferred tailor, choose a service, pick an available date and time, and provide your contact details. You'll receive an instant confirmation via email and SMS.
+                                You can either visit your chosen tailor for an in-person measurement session, or use our guided self-measurement tool with video instructions. For best results, we recommend an in-person fitting for your first order.
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                Can I reschedule or cancel my appointment?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                Can I save my measurements for future orders?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Yes, you can reschedule or cancel your appointment through your dashboard. We recommend giving at least 24 hours notice. Cancellation policies may vary by tailor.
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
-                                What should I bring to my appointment?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
-                                </svg>
-                            </button>
-                            <div class="accordion-content">
-                                For alterations, bring the garment(s) you need altered. For bespoke services, bring any reference images or fabric samples if you have specific preferences. Your tailor will guide you through the rest.
+                                Yes! Once your measurements are taken, they're securely stored in your account. You can use these saved measurements for future orders, and update them anytime if your body changes.
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Payment Questions -->
-                <div class="faq-category">
-                    <h3>Pricing & Payment</h3>
+                <!-- Orders & Pricing -->
+                <div style="margin-bottom: 2.5rem;">
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Orders & Pricing</h2>
                     <div class="accordion">
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                How is pricing determined?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                How much does custom tailoring cost?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Pricing varies by tailor and service type. All tailors display their starting prices on their profiles. Final pricing is determined during your consultation based on fabric choice, complexity, and customizations.
+                                Pricing varies by garment type, fabric choice, and tailor expertise. Simple alterations start around $20, while custom suits can range from $300-$2000+. Each tailor sets their own prices, which are displayed on their profiles.
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                What payment methods are accepted?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                How long does it take to complete an order?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Payment methods vary by tailor. Most accept credit/debit cards, and some accept cash. Payment details are provided during the booking process.
+                                Turnaround time depends on the garment complexity and tailor availability. Simple alterations take 3-7 days, while custom garments typically take 2-4 weeks. Rush orders may be available for an additional fee.
                             </div>
                         </div>
                         <div class="accordion-item">
                             <button class="accordion-trigger">
-                                Is a deposit required?
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="6 9 12 15 18 9"/>
+                                What is your refund policy?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
                             <div class="accordion-content">
-                                Deposit requirements vary by tailor and service. For bespoke orders, a 50% deposit is common. Your tailor will discuss payment terms during your consultation.
+                                We offer free alterations if your garment doesn't fit as expected. If issues can't be resolved, refunds are handled on a case-by-case basis. Custom orders are non-refundable once production begins.
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Contact CTA -->
-                <div class="text-center mt-8">
-                    <h3>Still have questions?</h3>
-                    <p style="color: var(--muted-foreground); margin: 0.5rem 0 1.5rem;">We're here to help!</p>
-                    <a href="contact.html" class="btn btn-gold">Contact Support</a>
+                <!-- For Tailors -->
+                <div>
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">For Tailors</h2>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <button class="accordion-trigger">
+                                How can I join ThreadSync as a tailor?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                We're always looking for skilled tailors! Click 'Become a Tailor' on our homepage to apply. We'll review your portfolio, verify your credentials, and get you set up on our platform within a few business days.
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <button class="accordion-trigger">
+                                What are the fees for tailors?
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="m6 9 6 6 6-6"/>
+                                </svg>
+                            </button>
+                            <div class="accordion-content">
+                                ThreadSync charges a small commission on completed orders. There are no monthly fees or upfront costs—you only pay when you earn. Contact us for current commission rates.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Still Have Questions -->
+        <section style="padding: 4rem 0; background: hsl(var(--muted) / 0.3);">
+            <div class="container" style="text-align: center;">
+                <div style="max-width: 32rem; margin: 0 auto;">
+                    <div style="width: 4rem; height: 4rem; border-radius: 9999px; background: hsl(var(--gold) / 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="hsl(38, 75%, 55%)" stroke-width="2">
+                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+                        </svg>
+                    </div>
+                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: hsl(var(--foreground));">Still Have Questions?</h2>
+                    <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1.5rem;">Can't find what you're looking for? Our support team is here to help.</p>
+                    <div style="display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center;">
+                        <a href="contact.html" class="btn btn-gold btn-default">Contact Support</a>
+                        <a href="signup.html" class="btn btn-hero-outline btn-default">Create Account</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -218,8 +254,8 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2024 ThreadSync. All rights reserved.</p>
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>© 2024 ThreadSync. All rights reserved.</p>
             </div>
         </div>
     </footer>

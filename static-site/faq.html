@@ -40,8 +40,62 @@
         }
     </script>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .faq-accordion-item {
+            border-bottom: 1px solid hsl(40, 20%, 88%);
+        }
+        .faq-accordion-trigger {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1.25rem 0;
+            font-weight: 500;
+            font-size: 1rem;
+            text-align: left;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: hsl(220, 30%, 15%);
+            transition: color 0.2s ease;
+        }
+        .faq-accordion-trigger:hover {
+            color: hsl(38, 75%, 55%);
+        }
+        .faq-accordion-trigger svg {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            color: hsl(220, 15%, 45%);
+        }
+        .faq-accordion-item.open .faq-accordion-trigger svg {
+            transform: rotate(180deg);
+        }
+        .faq-accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: hsl(220, 15%, 45%);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-accordion-item.open .faq-accordion-content {
+            max-height: 500px;
+            padding-bottom: 1.25rem;
+        }
+        .faq-category-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: hsl(220, 30%, 15%);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid hsl(38, 75%, 55%);
+            display: inline-block;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-background font-sans">
     <!-- Header -->
     <header class="header">
         <div class="container header-content">
@@ -94,49 +148,49 @@
     <main>
         <!-- Hero Section -->
         <section class="page-header">
-            <div class="container">
-                <h1>Frequently Asked Questions</h1>
-                <p>Find answers to common questions about our tailoring services, ordering process, and more.</p>
+            <div class="container text-center">
+                <h1 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Frequently Asked Questions</h1>
+                <p class="text-muted-foreground text-lg max-w-2xl mx-auto">Find answers to common questions about our tailoring services, ordering process, and more.</p>
             </div>
         </section>
 
         <!-- FAQ Content -->
-        <section style="padding: 4rem 0 5rem;">
-            <div class="container" style="max-width: 48rem;">
+        <section class="py-16">
+            <div class="container max-w-3xl mx-auto">
                 <!-- Getting Started -->
-                <div style="margin-bottom: 2.5rem;">
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Getting Started</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                <div class="mb-12 animate-fade-up">
+                    <h2 class="faq-category-title">Getting Started</h2>
+                    <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 How does ThreadSync work?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 ThreadSync connects you with skilled local tailors. Simply browse our verified tailor profiles, compare their specialties and reviews, book an appointment, and get your measurements taken. Your tailor will then create custom-fitted garments just for you.
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 How do I find a tailor near me?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 Once you create an account, you can browse tailors by location, specialty, and customer ratings. Our platform shows you verified tailors in your area along with their portfolios, pricing, and availability.
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 Do I need to create an account to use ThreadSync?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 You can browse tailor profiles without an account, but you'll need to sign up to book appointments, save your measurements, and place orders. Creating an account is free and takes less than a minute.
                             </div>
                         </div>
@@ -144,28 +198,28 @@
                 </div>
 
                 <!-- Measurements & Fittings -->
-                <div style="margin-bottom: 2.5rem;">
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Measurements & Fittings</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                <div class="mb-12 animate-fade-up" style="animation-delay: 0.1s;">
+                    <h2 class="faq-category-title">Measurements & Fittings</h2>
+                    <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 How do I get measured?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 You can either visit your chosen tailor for an in-person measurement session, or use our guided self-measurement tool with video instructions. For best results, we recommend an in-person fitting for your first order.
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 Can I save my measurements for future orders?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 Yes! Once your measurements are taken, they're securely stored in your account. You can use these saved measurements for future orders, and update them anytime if your body changes.
                             </div>
                         </div>
@@ -173,39 +227,39 @@
                 </div>
 
                 <!-- Orders & Pricing -->
-                <div style="margin-bottom: 2.5rem;">
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Orders & Pricing</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                <div class="mb-12 animate-fade-up" style="animation-delay: 0.2s;">
+                    <h2 class="faq-category-title">Orders & Pricing</h2>
+                    <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 How much does custom tailoring cost?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 Pricing varies by garment type, fabric choice, and tailor expertise. Simple alterations start around $20, while custom suits can range from $300-$2000+. Each tailor sets their own prices, which are displayed on their profiles.
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 How long does it take to complete an order?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 Turnaround time depends on the garment complexity and tailor availability. Simple alterations take 3-7 days, while custom garments typically take 2-4 weeks. Rush orders may be available for an additional fee.
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 What is your refund policy?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 We offer free alterations if your garment doesn't fit as expected. If issues can't be resolved, refunds are handled on a case-by-case basis. Custom orders are non-refundable once production begins.
                             </div>
                         </div>
@@ -213,28 +267,28 @@
                 </div>
 
                 <!-- For Tailors -->
-                <div>
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">For Tailors</h2>
-                    <div class="accordion">
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                <div class="animate-fade-up" style="animation-delay: 0.3s;">
+                    <h2 class="faq-category-title">For Tailors</h2>
+                    <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 How can I join ThreadSync as a tailor?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 We're always looking for skilled tailors! Click 'Become a Tailor' on our homepage to apply. We'll review your portfolio, verify your credentials, and get you set up on our platform within a few business days.
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <button class="accordion-trigger">
+                        <div class="faq-accordion-item">
+                            <button class="faq-accordion-trigger">
                                 What are the fees for tailors?
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="m6 9 6 6 6-6"/>
                                 </svg>
                             </button>
-                            <div class="accordion-content">
+                            <div class="faq-accordion-content px-4">
                                 ThreadSync charges a small commission on completed orders. There are no monthly fees or upfront costs—you only pay when you earn. Contact us for current commission rates.
                             </div>
                         </div>
@@ -244,17 +298,17 @@
         </section>
 
         <!-- Still Have Questions -->
-        <section style="padding: 4rem 0; background: hsl(var(--muted) / 0.3);">
-            <div class="container" style="text-align: center;">
-                <div style="max-width: 32rem; margin: 0 auto;">
-                    <div style="width: 4rem; height: 4rem; border-radius: 9999px; background: hsl(var(--gold) / 0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+        <section class="py-16 bg-muted/30">
+            <div class="container text-center">
+                <div class="max-w-lg mx-auto animate-fade-up">
+                    <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="hsl(38, 75%, 55%)" stroke-width="2">
                             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
                         </svg>
                     </div>
-                    <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: hsl(var(--foreground));">Still Have Questions?</h2>
-                    <p style="color: hsl(var(--muted-foreground)); margin-bottom: 1.5rem;">Can't find what you're looking for? Our support team is here to help.</p>
-                    <div style="display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center;">
+                    <h2 class="font-display text-2xl font-bold text-foreground mb-4">Still Have Questions?</h2>
+                    <p class="text-muted-foreground mb-6">Can't find what you're looking for? Our support team is here to help.</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="contact.html" class="btn btn-gold btn-default">Contact Support</a>
                         <a href="signup.html" class="btn btn-hero-outline btn-default">Create Account</a>
                     </div>
@@ -311,17 +365,55 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 ThreadSync. All rights reserved.</p>
+                <p>&copy; 2024 ThreadSync. All rights reserved.</p>
                 <div class="footer-social">
-                    <a href="#" class="icon-hover">Facebook</a>
-                    <a href="#" class="icon-hover">Instagram</a>
-                    <a href="#" class="icon-hover">Twitter</a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect width="4" height="12" x="2" y="9"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Toast -->
     <div id="toast" class="toast hidden"></div>
+
     <script src="js/main.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-accordion-item').forEach(item => {
+            const trigger = item.querySelector('.faq-accordion-trigger');
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('open');
+                // Close all other items
+                document.querySelectorAll('.faq-accordion-item').forEach(i => i.classList.remove('open'));
+                // Toggle current item
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -184,7 +184,7 @@ const TailorDetail = () => {
                   </p>
                 </div>
 
-                <Link to="/signup">
+                <Link to={`/booking?tailor=${tailor.id}`}>
                   <Button variant="gold" size="lg" className="w-full gap-2">
                     <Calendar className="h-4 w-4" />
                     Book Appointment

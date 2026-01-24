@@ -18,6 +18,18 @@
                         sans: ['Outfit', 'sans-serif'],
                     },
                     colors: {
+                        background: 'hsl(40, 30%, 97%)',
+                        foreground: 'hsl(220, 30%, 15%)',
+                        card: { DEFAULT: 'hsl(0, 0%, 100%)', foreground: 'hsl(220, 30%, 15%)' },
+                        popover: { DEFAULT: 'hsl(0, 0%, 100%)', foreground: 'hsl(220, 30%, 15%)' },
+                        primary: { DEFAULT: 'hsl(220, 40%, 20%)', foreground: 'hsl(40, 30%, 97%)' },
+                        secondary: { DEFAULT: 'hsl(40, 25%, 92%)', foreground: 'hsl(220, 30%, 15%)' },
+                        muted: { DEFAULT: 'hsl(40, 20%, 94%)', foreground: 'hsl(220, 15%, 45%)' },
+                        accent: { DEFAULT: 'hsl(38, 75%, 55%)', foreground: 'hsl(220, 40%, 15%)' },
+                        destructive: { DEFAULT: 'hsl(0, 84%, 60%)', foreground: 'hsl(0, 0%, 100%)' },
+                        border: 'hsl(40, 20%, 88%)',
+                        input: 'hsl(40, 20%, 88%)',
+                        ring: 'hsl(220, 40%, 20%)',
                         gold: { DEFAULT: 'hsl(38, 75%, 55%)', light: 'hsl(40, 65%, 70%)' },
                         navy: { DEFAULT: 'hsl(220, 40%, 20%)', light: 'hsl(220, 30%, 35%)' },
                         cream: { DEFAULT: 'hsl(40, 30%, 97%)', dark: 'hsl(40, 25%, 92%)' },
@@ -29,45 +41,72 @@
     </script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="min-h-screen bg-background">
+<body>
     <!-- Header -->
-    <header class="border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2">
-                <svg class="h-6 w-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="6" cy="6" r="3"/>
-                    <path d="M8.12 8.12 12 12"/>
-                    <path d="M20 4 8.12 15.88"/>
-                    <circle cx="6" cy="18" r="3"/>
-                    <path d="M14.8 14.8 18 18"/>
-                </svg>
-                <span class="font-display text-xl font-bold text-primary">ThreadSync</span>
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"/>
+                        <path d="M8.12 8.12 12 12"/>
+                        <path d="M20 4 8.12 15.88"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <path d="M14.8 14.8 18 18"/>
+                    </svg>
+                </div>
+                <span class="logo-text">ThreadSync</span>
             </a>
-            <nav class="flex items-center gap-4">
-                <a href="index.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Home</a>
-                <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+            <nav class="nav-desktop">
+                <a href="tailors.html" class="nav-link">Find Tailors</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
             </nav>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-ghost btn-default">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
+                </svg>
+                <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                </svg>
+            </button>
         </div>
+        <nav class="mobile-menu hidden">
+            <a href="tailors.html" class="mobile-nav-link">Find Tailors</a>
+            <a href="about.html" class="mobile-nav-link active">About</a>
+            <a href="faq.html" class="mobile-nav-link">FAQ</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-ghost btn-default w-full">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default w-full">Get Started</a>
+            </div>
+        </nav>
     </header>
 
-    <main>
+    <main class="page-content">
         <!-- Hero Section -->
-        <section class="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
-            <div class="container mx-auto px-4 text-center">
-                <h1 class="font-display text-4xl md:text-5xl font-bold text-primary mb-6">About ThreadSync</h1>
-                <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Connecting you with skilled tailors to create perfectly fitted clothing that reflects your unique style.
-                </p>
+        <section class="page-header">
+            <div class="container">
+                <h1 class="animate-fade-up">About ThreadSync</h1>
+                <p class="animate-fade-up stagger-1">Connecting you with skilled tailors to create perfectly fitted clothing that reflects your unique style.</p>
             </div>
         </section>
 
         <!-- Our Story -->
-        <section class="py-16 md:py-20">
-            <div class="container mx-auto px-4">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
-                    <div>
-                        <h2 class="font-display text-3xl font-bold text-primary mb-6">Our Story</h2>
-                        <div class="space-y-4 text-muted-foreground">
+        <section class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content animate-slide-in-left">
+                        <h2 class="section-title">Our Story</h2>
+                        <div class="about-text">
                             <p>
                                 ThreadSync was born from a simple frustration: finding a skilled tailor shouldn't be so difficult. 
                                 In an age of fast fashion and off-the-rack clothing, we believe there's still immense value in 
@@ -84,13 +123,13 @@
                             </p>
                         </div>
                     </div>
-                    <div class="relative">
-                        <div class="aspect-square rounded-2xl overflow-hidden bg-muted">
-                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop" alt="Tailor at work" class="w-full h-full object-cover">
+                    <div class="about-image animate-slide-in-right">
+                        <div class="image-wrapper image-hover">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=600&fit=crop" alt="Tailor at work">
                         </div>
-                        <div class="absolute -bottom-6 -left-6 bg-accent text-accent-foreground p-6 rounded-xl shadow-lg">
-                            <div class="text-3xl font-bold font-display">500+</div>
-                            <div class="text-sm opacity-90">Verified Tailors</div>
+                        <div class="floating-stat animate-float">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Verified Tailors</span>
                         </div>
                     </div>
                 </div>
@@ -98,14 +137,15 @@
         </section>
 
         <!-- Our Values -->
-        <section class="py-16 md:py-20 bg-muted/30">
-            <div class="container mx-auto px-4">
-                <h2 class="font-display text-3xl font-bold text-primary text-center mb-12">Our Values</h2>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Quality Craftsmanship -->
-                    <div class="bg-background rounded-xl p-6 shadow-sm border border-border/50">
-                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                            <svg class="h-6 w-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <section class="section section-muted">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-fade-up">Our Values</h2>
+                </div>
+                <div class="values-grid">
+                    <div class="value-card animate-fade-up stagger-1">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
                                 <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
                                 <path d="M4 22h16"/>
@@ -114,108 +154,154 @@
                                 <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
                             </svg>
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary mb-2">Quality Craftsmanship</h3>
-                        <p class="text-sm text-muted-foreground">We partner only with skilled tailors who demonstrate exceptional attention to detail and commitment to excellence.</p>
+                        <h3>Quality Craftsmanship</h3>
+                        <p>We partner only with skilled tailors who demonstrate exceptional attention to detail and commitment to excellence.</p>
                     </div>
-                    <!-- Customer First -->
-                    <div class="bg-background rounded-xl p-6 shadow-sm border border-border/50">
-                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                            <svg class="h-6 w-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="value-card animate-fade-up stagger-2">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                                 <circle cx="9" cy="7" r="4"/>
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary mb-2">Customer First</h3>
-                        <p class="text-sm text-muted-foreground">Your satisfaction is our priority. We ensure a seamless experience from measurement to final fitting.</p>
+                        <h3>Customer First</h3>
+                        <p>Your satisfaction is our priority. We ensure a seamless experience from measurement to final fitting.</p>
                     </div>
-                    <!-- Passion for Fashion -->
-                    <div class="bg-background rounded-xl p-6 shadow-sm border border-border/50">
-                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                            <svg class="h-6 w-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="value-card animate-fade-up stagger-3">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
                             </svg>
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary mb-2">Passion for Fashion</h3>
-                        <p class="text-sm text-muted-foreground">We believe everyone deserves clothing that fits perfectly and makes them feel confident.</p>
+                        <h3>Passion for Fashion</h3>
+                        <p>We believe everyone deserves clothing that fits perfectly and makes them feel confident.</p>
                     </div>
-                    <!-- Local Community -->
-                    <div class="bg-background rounded-xl p-6 shadow-sm border border-border/50">
-                        <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-                            <svg class="h-6 w-6 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="value-card animate-fade-up stagger-4">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
                                 <circle cx="12" cy="10" r="3"/>
                             </svg>
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary mb-2">Local Community</h3>
-                        <p class="text-sm text-muted-foreground">We support local artisans and tailors, helping preserve traditional craftsmanship in modern times.</p>
+                        <h3>Local Community</h3>
+                        <p>We support local artisans and tailors, helping preserve traditional craftsmanship in modern times.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Team Section -->
-        <section class="py-16 md:py-20">
-            <div class="container mx-auto px-4">
-                <h2 class="font-display text-3xl font-bold text-primary text-center mb-4">Meet Our Team</h2>
-                <p class="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-                    The passionate people behind ThreadSync working to revolutionize the tailoring industry.
-                </p>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <!-- Sarah Johnson -->
-                    <div class="text-center">
-                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-accent/20">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face" alt="Sarah Johnson" class="w-full h-full object-cover">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title animate-fade-up">Meet Our Team</h2>
+                    <p class="section-subtitle animate-fade-up stagger-1">The passionate people behind ThreadSync working to revolutionize the tailoring industry.</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card animate-fade-up stagger-2">
+                        <div class="team-image image-hover">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face" alt="Sarah Johnson">
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary">Sarah Johnson</h3>
-                        <p class="text-sm text-muted-foreground">Founder & CEO</p>
+                        <h3>Sarah Johnson</h3>
+                        <p>Founder & CEO</p>
                     </div>
-                    <!-- Michael Chen -->
-                    <div class="text-center">
-                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-accent/20">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Michael Chen" class="w-full h-full object-cover">
+                    <div class="team-card animate-fade-up stagger-3">
+                        <div class="team-image image-hover">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Michael Chen">
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary">Michael Chen</h3>
-                        <p class="text-sm text-muted-foreground">Head of Operations</p>
+                        <h3>Michael Chen</h3>
+                        <p>Head of Operations</p>
                     </div>
-                    <!-- Emily Rodriguez -->
-                    <div class="text-center">
-                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden mb-4 border-4 border-accent/20">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" alt="Emily Rodriguez" class="w-full h-full object-cover">
+                    <div class="team-card animate-fade-up stagger-4">
+                        <div class="team-image image-hover">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" alt="Emily Rodriguez">
                         </div>
-                        <h3 class="font-display text-lg font-semibold text-primary">Emily Rodriguez</h3>
-                        <p class="text-sm text-muted-foreground">Lead Designer</p>
+                        <h3>Emily Rodriguez</h3>
+                        <p>Lead Designer</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="py-16 md:py-20 bg-primary text-primary-foreground">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="font-display text-3xl font-bold mb-4">Ready to Find Your Perfect Tailor?</h2>
-                <p class="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-                    Join thousands of satisfied customers who've discovered the joy of perfectly fitted clothing.
-                </p>
-                <a href="signup.html" class="btn btn-gold btn-lg inline-flex items-center gap-2">
-                    Get Started
-                    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14"/>
-                        <path d="m12 5 7 7-7 7"/>
-                    </svg>
-                </a>
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content animate-fade-up">
+                    <h2>Ready to Find Your Perfect Tailor?</h2>
+                    <p>Join thousands of satisfied customers who've discovered the joy of perfectly fitted clothing.</p>
+                    <a href="signup.html" class="btn btn-gold btn-lg">
+                        Get Started
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14"/>
+                            <path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 border-t border-border/50">
-        <div class="container mx-auto px-4 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 ThreadSync. All rights reserved.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="6" cy="6" r="3"/>
+                                <path d="M8.12 8.12 12 12"/>
+                                <path d="M20 4 8.12 15.88"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <path d="M14.8 14.8 18 18"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">ThreadSync</span>
+                    </a>
+                    <p>Connecting you with skilled tailors for perfect-fit clothing. Quality craftsmanship, conveniently delivered.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Custom Tailoring</a></li>
+                        <li><a href="#">Alterations</a></li>
+                        <li><a href="#">Stitching</a></li>
+                        <li><a href="#">Wedding Attire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="tailors.html">Our Tailors</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 ThreadSync. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="icon-hover">Facebook</a>
+                    <a href="#" class="icon-hover">Instagram</a>
+                    <a href="#" class="icon-hover">Twitter</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <div id="toast" class="toast hidden"></div>
     <script src="js/main.js"></script>
 </body>
 </html>

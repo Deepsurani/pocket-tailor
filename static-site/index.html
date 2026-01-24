@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ThreadSync - Find Your Perfect Tailor</title>
-    <meta name="description" content="Connect with skilled tailors for bespoke suits, alterations, and custom garments. Quality craftsmanship, modern convenience.">
+    <title>ThreadSync - Tailoring in Your Pocket</title>
+    <meta name="description" content="Connect with skilled local tailors for custom-made clothes, alterations, and stitching services. Quality craftsmanship, delivered to your doorstep.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -18,18 +18,9 @@
                         sans: ['Outfit', 'sans-serif'],
                     },
                     colors: {
-                        gold: {
-                            DEFAULT: 'hsl(38, 75%, 55%)',
-                            light: 'hsl(40, 65%, 70%)',
-                        },
-                        navy: {
-                            DEFAULT: 'hsl(220, 40%, 20%)',
-                            light: 'hsl(220, 30%, 35%)',
-                        },
-                        cream: {
-                            DEFAULT: 'hsl(40, 30%, 97%)',
-                            dark: 'hsl(40, 25%, 92%)',
-                        },
+                        gold: { DEFAULT: 'hsl(38, 75%, 55%)', light: 'hsl(40, 65%, 70%)' },
+                        navy: { DEFAULT: 'hsl(220, 40%, 20%)', light: 'hsl(220, 30%, 35%)' },
+                        cream: { DEFAULT: 'hsl(40, 30%, 97%)', dark: 'hsl(40, 25%, 92%)' },
                         charcoal: 'hsl(220, 15%, 30%)',
                     },
                 }
@@ -43,75 +34,124 @@
     <header class="header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="6" cy="6" r="3"/>
-                    <path d="m6 9 6 6 6-6"/>
-                    <circle cx="18" cy="18" r="3"/>
-                </svg>
-                <span>ThreadSync</span>
+                <div class="logo-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"/>
+                        <path d="M8.12 8.12 12 12"/>
+                        <path d="M20 4 8.12 15.88"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <path d="M14.8 14.8 18 18"/>
+                    </svg>
+                </div>
+                <span class="logo-text">ThreadSync</span>
             </a>
             <nav class="nav-desktop">
-                <a href="index.html" class="nav-link active">Home</a>
                 <a href="tailors.html" class="nav-link">Find Tailors</a>
                 <a href="about.html" class="nav-link">About</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <a href="login.html" class="btn btn-ghost">Sign In</a>
-                <a href="signup.html" class="btn btn-gold">Get Started</a>
+                <a href="login.html" class="btn btn-ghost btn-default">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default">Get Started</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
                 </svg>
                 <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
                 </svg>
             </button>
         </div>
         <nav class="mobile-menu hidden">
-            <a href="index.html" class="mobile-nav-link active">Home</a>
             <a href="tailors.html" class="mobile-nav-link">Find Tailors</a>
             <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="faq.html" class="mobile-nav-link">FAQ</a>
             <a href="contact.html" class="mobile-nav-link">Contact</a>
-            <a href="login.html" class="mobile-nav-link">Sign In</a>
-            <a href="signup.html" class="btn btn-gold" style="margin-top: 1rem;">Get Started</a>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-ghost btn-default w-full">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default w-full">Get Started</a>
+            </div>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="container">
+            <div class="hero-bg"></div>
+            <div class="container" style="position: relative; z-index: 10;">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1>Find Your Perfect <span>Tailor</span></h1>
-                        <p>Connect with skilled tailors in your area for bespoke suits, alterations, and custom garments. Quality craftsmanship meets modern convenience.</p>
-                        <div class="hero-buttons">
-                            <a href="tailors.html" class="btn btn-gold">Find a Tailor</a>
-                            <a href="signup.html" class="btn btn-outline">Join as a Tailor</a>
+                        <!-- Badge -->
+                        <div class="hero-badge">
+                            <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                            <span>Trusted by 10,000+ customers</span>
                         </div>
+
+                        <!-- Headline -->
+                        <h1 class="hero-title">
+                            Tailoring in
+                            <span class="text-gradient-gold">Your Pocket</span>
+                        </h1>
+
+                        <!-- Subheadline -->
+                        <p class="hero-subtitle">
+                            Connect with skilled local tailors for custom-made clothes, 
+                            alterations, and stitching services. Quality craftsmanship, 
+                            delivered to your doorstep.
+                        </p>
+
+                        <!-- CTA Buttons -->
+                        <div class="hero-buttons">
+                            <a href="tailors.html" class="btn btn-hero btn-xl">
+                                Find a Tailor
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="signup.html" class="btn btn-hero-outline btn-xl">
+                                Join as a Tailor
+                            </a>
+                        </div>
+
+                        <!-- Stats -->
                         <div class="hero-stats">
                             <div class="stat-item">
-                                <strong>500+</strong>
-                                <span>Verified Tailors</span>
+                                <p class="stat-value">500+</p>
+                                <p class="stat-label">Expert Tailors</p>
                             </div>
                             <div class="stat-item">
-                                <strong>10,000+</strong>
-                                <span>Orders Completed</span>
+                                <p class="stat-value">50K+</p>
+                                <p class="stat-label">Orders Completed</p>
+                            </div>
+                            <div class="stat-item">
+                                <p class="stat-value">4.9</p>
+                                <p class="stat-label">Customer Rating</p>
                             </div>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=500&fit=crop" alt="Professional tailor at work">
-                        <div class="quality-badge">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
-                            <span>Quality Assured</span>
+
+                    <!-- Hero Image -->
+                    <div class="hero-image-wrapper">
+                        <div class="hero-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop" alt="Professional tailor measuring fine fabric">
+                            <div class="hero-image-overlay"></div>
+                        </div>
+                        
+                        <!-- Floating Card -->
+                        <div class="hero-floating-card">
+                            <div class="hero-floating-icon">✓</div>
+                            <div class="hero-floating-text">
+                                <h4>Quality Assured</h4>
+                                <p>Satisfaction Guaranteed</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -122,178 +162,318 @@
         <section class="how-it-works">
             <div class="container">
                 <div class="section-header">
-                    <h2>How It Works</h2>
-                    <p>Get your perfect fit in four simple steps</p>
+                    <span class="section-label">Simple Process</span>
+                    <h2 class="section-title">How It Works</h2>
+                    <p class="section-subtitle">From selection to delivery, we make custom tailoring effortless</p>
                 </div>
                 <div class="steps-grid">
                     <div class="step-card">
-                        <span class="step-number">1</span>
+                        <span class="step-number">01</span>
                         <div class="step-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"/>
-                                <path d="m21 21-4.3-4.3"/>
+                                <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>
                             </svg>
                         </div>
-                        <h3>Search</h3>
-                        <p>Find tailors in your area based on specialty, ratings, and reviews.</p>
+                        <h3>Choose Your Style</h3>
+                        <p>Browse our catalog or upload your own design. Select fabrics, colors, and customization options.</p>
                     </div>
                     <div class="step-card">
-                        <span class="step-number">2</span>
-                        <div class="step-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-                                <line x1="16" x2="16" y1="2" y2="6"/>
-                                <line x1="8" x2="8" y1="2" y2="6"/>
-                                <line x1="3" x2="21" y1="10" y2="10"/>
-                            </svg>
-                        </div>
-                        <h3>Book</h3>
-                        <p>Schedule an appointment at your convenience with instant confirmation.</p>
-                    </div>
-                    <div class="step-card">
-                        <span class="step-number">3</span>
+                        <span class="step-number">02</span>
                         <div class="step-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/>
+                                <path d="m14.5 12.5 2-2"/>
+                                <path d="m11.5 9.5 2-2"/>
+                                <path d="m8.5 6.5 2-2"/>
+                                <path d="m17.5 15.5 2-2"/>
                             </svg>
                         </div>
-                        <h3>Measure</h3>
-                        <p>Get professionally measured for the perfect fit every time.</p>
+                        <h3>Share Measurements</h3>
+                        <p>Use our easy measurement guide or schedule a home visit from one of our expert tailors.</p>
                     </div>
                     <div class="step-card">
-                        <span class="step-number">4</span>
+                        <span class="step-number">03</span>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+                                <path d="M15 18H9"/>
+                                <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+                                <circle cx="17" cy="18" r="2"/>
+                                <circle cx="7" cy="18" r="2"/>
+                            </svg>
+                        </div>
+                        <h3>We Craft & Deliver</h3>
+                        <p>Your garment is expertly crafted and delivered to your doorstep with free alterations.</p>
+                    </div>
+                    <div class="step-card">
+                        <span class="step-number">04</span>
                         <div class="step-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
                         </div>
-                        <h3>Receive</h3>
-                        <p>Pick up your custom-fitted garments or have them delivered.</p>
+                        <h3>Perfect Fit Guaranteed</h3>
+                        <p>Not satisfied? We offer unlimited alterations until you love how it fits.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services -->
-        <section class="services" style="background: var(--secondary);">
+        <!-- Services Section -->
+        <section class="services">
             <div class="container">
                 <div class="section-header">
-                    <h2>Our Services</h2>
-                    <p>From bespoke suits to quick alterations</p>
+                    <span class="section-label">What We Offer</span>
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">Professional tailoring services for every need and occasion</p>
                 </div>
                 <div class="services-grid">
-                    <div class="service-card-display">
+                    <div class="service-card">
                         <div class="service-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>
                             </svg>
                         </div>
-                        <h3>Bespoke Suits</h3>
-                        <p>Custom-made suits tailored to your exact measurements and style preferences.</p>
+                        <h3>Custom Tailoring</h3>
+                        <p>Get perfectly fitted clothes made from scratch. Choose from premium fabrics and designs.</p>
                         <ul class="service-features">
-                            <li>Personal consultation</li>
-                            <li>Fabric selection</li>
-                            <li>Multiple fittings</li>
+                            <li>Premium Fabrics</li>
+                            <li>Personal Consultation</li>
+                            <li>Multiple Fittings</li>
                         </ul>
-                        <span class="service-price">From $599</span>
+                        <div class="service-footer">
+                            <span class="service-price">From $99</span>
+                            <a href="#" class="service-link">Learn More →</a>
+                        </div>
                     </div>
-                    <div class="service-card-display">
+                    <div class="service-card">
                         <div class="service-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="6" cy="6" r="3"/>
-                                <path d="m6 9 6 6 6-6"/>
-                                <circle cx="18" cy="18" r="3"/>
+                                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                <path d="m15 5 4 4"/>
                             </svg>
                         </div>
                         <h3>Alterations</h3>
-                        <p>Expert alterations to make your existing clothes fit perfectly.</p>
+                        <p>Perfect fit adjustments for your existing wardrobe. Quick turnaround guaranteed.</p>
                         <ul class="service-features">
-                            <li>Hem adjustments</li>
-                            <li>Waist modifications</li>
-                            <li>Sleeve shortening</li>
+                            <li>Same Week Service</li>
+                            <li>All Garment Types</li>
+                            <li>Expert Craftsmanship</li>
                         </ul>
-                        <span class="service-price">From $25</span>
+                        <div class="service-footer">
+                            <span class="service-price">From $25</span>
+                            <a href="#" class="service-link">Learn More →</a>
+                        </div>
                     </div>
-                    <div class="service-card-display">
+                    <div class="service-card">
                         <div class="service-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/>
+                                <circle cx="6" cy="6" r="3"/>
+                                <path d="M8.12 8.12 12 12"/>
+                                <path d="M20 4 8.12 15.88"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <path d="M14.8 14.8 18 18"/>
                             </svg>
                         </div>
-                        <h3>Wedding Attire</h3>
-                        <p>Stunning bridal and groom wear for your special day.</p>
+                        <h3>Stitching Services</h3>
+                        <p>Expert stitching for all types of garments including traditional and contemporary styles.</p>
                         <ul class="service-features">
-                            <li>Custom design</li>
-                            <li>Premium fabrics</li>
-                            <li>Express service</li>
+                            <li>Traditional & Modern</li>
+                            <li>Quality Thread</li>
+                            <li>Durable Finish</li>
                         </ul>
-                        <span class="service-price">From $899</span>
+                        <div class="service-footer">
+                            <span class="service-price">From $49</span>
+                            <a href="#" class="service-link">Learn More →</a>
+                        </div>
                     </div>
-                    <div class="service-card-display">
+                    <div class="service-card">
                         <div class="service-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
-                                <circle cx="12" cy="13" r="3"/>
+                                <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                                <path d="M5 3v4"/>
+                                <path d="M19 17v4"/>
+                                <path d="M3 5h4"/>
+                                <path d="M17 19h4"/>
                             </svg>
                         </div>
-                        <h3>Custom Shirts</h3>
-                        <p>Made-to-measure shirts with your choice of collar, cuffs, and fabric.</p>
+                        <h3>Special Occasions</h3>
+                        <p>Wedding attire, formal wear, and special event clothing made to perfection.</p>
                         <ul class="service-features">
-                            <li>Monogramming</li>
-                            <li>Collar styles</li>
-                            <li>Cuff options</li>
+                            <li>Wedding Specialists</li>
+                            <li>Rush Orders</li>
+                            <li>VIP Service</li>
                         </ul>
-                        <span class="service-price">From $129</span>
+                        <div class="service-footer">
+                            <span class="service-price">From $199</span>
+                            <a href="#" class="service-link">Learn More →</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Tailors -->
+        <!-- Featured Tailors Section -->
         <section class="tailors">
             <div class="container">
                 <div class="section-header">
-                    <h2>Featured Tailors</h2>
-                    <p>Meet our top-rated craftsmen</p>
+                    <span class="section-label">Meet Our Experts</span>
+                    <h2 class="section-title">Featured Tailors</h2>
+                    <p class="section-subtitle">Skilled artisans ready to bring your vision to life</p>
                 </div>
                 <div class="tailors-grid">
                     <a href="tailor-detail.html" class="tailor-card">
                         <div class="tailor-image">
-                            <span class="tailor-badge">15+ Years Exp.</span>
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=300&fit=crop&crop=face" alt="Maria Santos">
+                            <div class="tailor-image-overlay"></div>
+                            <span class="tailor-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                    <path d="M4 22h16"/>
+                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                                </svg>
+                                15+ years
+                            </span>
                         </div>
                         <div class="tailor-info">
-                            <h3>Elite Tailors & Co.</h3>
-                            <p class="tailor-specialty">Bespoke Suits</p>
-                            <p class="tailor-location">📍 Manhattan, NY</p>
-                            <div class="tailor-rating">⭐ 4.9 (128 reviews)</div>
+                            <h3>Maria Santos</h3>
+                            <p class="tailor-specialty">Wedding & Formal Wear</p>
+                            <div class="tailor-meta">
+                                <span class="tailor-location">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Downtown
+                                </span>
+                                <span class="tailor-rating">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    </svg>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="rating-count">(234)</span>
+                                </span>
+                            </div>
                         </div>
                     </a>
                     <a href="tailor-detail.html" class="tailor-card">
                         <div class="tailor-image">
-                            <span class="tailor-badge">10+ Years Exp.</span>
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop&crop=face" alt="James Chen">
+                            <div class="tailor-image-overlay"></div>
+                            <span class="tailor-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                    <path d="M4 22h16"/>
+                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                                </svg>
+                                12+ years
+                            </span>
                         </div>
                         <div class="tailor-info">
-                            <h3>Modern Stitch Studio</h3>
-                            <p class="tailor-specialty">Alterations</p>
-                            <p class="tailor-location">📍 Brooklyn, NY</p>
-                            <div class="tailor-rating">⭐ 4.8 (96 reviews)</div>
+                            <h3>James Chen</h3>
+                            <p class="tailor-specialty">Men's Suits & Blazers</p>
+                            <div class="tailor-meta">
+                                <span class="tailor-location">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    Midtown
+                                </span>
+                                <span class="tailor-rating">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    </svg>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="rating-count">(189)</span>
+                                </span>
+                            </div>
                         </div>
                     </a>
                     <a href="tailor-detail.html" class="tailor-card">
                         <div class="tailor-image">
-                            <span class="tailor-badge">20+ Years Exp.</span>
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=300&fit=crop&crop=face" alt="Fatima Al-Hassan">
+                            <div class="tailor-image-overlay"></div>
+                            <span class="tailor-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                    <path d="M4 22h16"/>
+                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                                </svg>
+                                20+ years
+                            </span>
                         </div>
                         <div class="tailor-info">
-                            <h3>Classic Cuts Tailoring</h3>
-                            <p class="tailor-specialty">Wedding Attire</p>
-                            <p class="tailor-location">📍 Queens, NY</p>
-                            <div class="tailor-rating">⭐ 4.9 (156 reviews)</div>
+                            <h3>Fatima Al-Hassan</h3>
+                            <p class="tailor-specialty">Traditional & Modern Fusion</p>
+                            <div class="tailor-meta">
+                                <span class="tailor-location">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    East Side
+                                </span>
+                                <span class="tailor-rating">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    </svg>
+                                    <span class="rating-value">5.0</span>
+                                    <span class="rating-count">(312)</span>
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=300&fit=crop&crop=face" alt="Robert Williams">
+                            <div class="tailor-image-overlay"></div>
+                            <span class="tailor-badge">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                    <path d="M4 22h16"/>
+                                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                                </svg>
+                                8+ years
+                            </span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Robert Williams</h3>
+                            <p class="tailor-specialty">Alterations Specialist</p>
+                            <div class="tailor-meta">
+                                <span class="tailor-location">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                    West End
+                                </span>
+                                <span class="tailor-rating">
+                                    <svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    </svg>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="rating-count">(156)</span>
+                                </span>
+                            </div>
                         </div>
                     </a>
                 </div>
-                <div class="text-center mt-8">
-                    <a href="tailors.html" class="btn btn-outline">View All Tailors</a>
+                <div class="tailors-cta">
+                    <a href="tailors.html" class="btn btn-gold btn-lg">View All Tailors</a>
                 </div>
             </div>
         </section>
@@ -301,52 +481,103 @@
         <!-- CTA Section -->
         <section class="cta-section">
             <div class="container">
-                <div class="cta-content">
-                    <div class="cta-text">
-                        <h2>Ready to Get Started?</h2>
-                        <p>Join thousands of satisfied customers who have found their perfect fit with ThreadSync.</p>
+                <div class="cta-grid">
+                    <div class="cta-content">
+                        <span class="section-label">Get Started Today</span>
+                        <h2 class="cta-title">
+                            Ready for Your
+                            <span class="text-gradient-gold">Perfect Fit?</span>
+                        </h2>
+                        <p class="cta-description">
+                            Join thousands of satisfied customers who have discovered the 
+                            convenience of professional tailoring at their fingertips.
+                        </p>
+                        
                         <div class="cta-buttons">
-                            <a href="booking.html" class="btn btn-gold">Book Now</a>
-                            <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Contact Us</a>
+                            <a href="booking.html" class="btn btn-hero btn-lg">
+                                Start Your Order
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </a>
+                            <a href="contact.html" class="btn btn-hero-outline btn-lg">
+                                Contact Us
+                            </a>
                         </div>
+
+                        <!-- Contact Info -->
                         <div class="cta-contact">
                             <div class="cta-contact-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                </svg>
-                                <span>+1 (555) 123-4567</span>
+                                <div class="cta-contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </div>
+                                <div class="cta-contact-text">
+                                    <span>Call us</span>
+                                    <p>1-800-TAILOR</p>
+                                </div>
                             </div>
                             <div class="cta-contact-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                    <polyline points="22,6 12,13 2,6"/>
-                                </svg>
-                                <span>hello@threadsync.com</span>
+                                <div class="cta-contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                    </svg>
+                                </div>
+                                <div class="cta-contact-text">
+                                    <span>Email</span>
+                                    <p>hello@pocket.co</p>
+                                </div>
+                            </div>
+                            <div class="cta-contact-item">
+                                <div class="cta-contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div class="cta-contact-text">
+                                    <span>Locations</span>
+                                    <p>50+ Cities</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="cta-form">
-                        <h3>Get a Quote</h3>
-                        <form>
-                            <div class="form-group">
-                                <input type="text" class="form-input" placeholder="Your Name" required>
+
+                    <!-- Form Card -->
+                    <div class="form-card">
+                        <h3>Request a Quote</h3>
+                        <form id="quote-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" class="form-input" placeholder="John">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" class="form-input" placeholder="Doe">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-input" placeholder="Email Address" required>
+                                <label for="email">Email</label>
+                                <input type="email" id="email" class="form-input" placeholder="john@example.com">
                             </div>
                             <div class="form-group">
-                                <select class="form-select" required>
-                                    <option value="">Select Service</option>
-                                    <option value="bespoke">Bespoke Suit</option>
-                                    <option value="alterations">Alterations</option>
-                                    <option value="wedding">Wedding Attire</option>
-                                    <option value="custom-shirt">Custom Shirt</option>
+                                <label for="service">Service Needed</label>
+                                <select id="service" class="form-select">
+                                    <option>Custom Tailoring</option>
+                                    <option>Alterations</option>
+                                    <option>Stitching Services</option>
+                                    <option>Special Occasion</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-textarea" rows="3" placeholder="Tell us about your needs..."></textarea>
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-textarea" rows="4" placeholder="Tell us about your project..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-gold" style="width: 100%;">Request Quote</button>
+                            <button type="submit" class="btn btn-gold btn-lg w-full">Send Request</button>
                         </form>
                     </div>
                 </div>
@@ -360,63 +591,53 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="6" cy="6" r="3"/>
-                            <path d="m6 9 6 6 6-6"/>
-                            <circle cx="18" cy="18" r="3"/>
-                        </svg>
-                        <span>ThreadSync</span>
+                        <div class="logo-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="6" cy="6" r="3"/>
+                                <path d="M8.12 8.12 12 12"/>
+                                <path d="M20 4 8.12 15.88"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <path d="M14.8 14.8 18 18"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">ThreadSync</span>
                     </a>
-                    <p>Connecting you with skilled tailors for perfect-fitting garments.</p>
+                    <p>Connecting you with skilled tailors for perfect-fit clothing. Quality craftsmanship, conveniently delivered.</p>
                 </div>
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="tailors.html">Find Tailors</a></li>
-                        <li><a href="booking.html">Book Appointment</a></li>
-                        <li><a href="#">Bespoke Suits</a></li>
+                    <ul>
+                        <li><a href="#">Custom Tailoring</a></li>
                         <li><a href="#">Alterations</a></li>
+                        <li><a href="#">Stitching</a></li>
+                        <li><a href="#">Wedding Attire</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Company</h4>
-                    <ul class="footer-links">
+                    <ul>
                         <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="tailors.html">Our Tailors</a></li>
                         <li><a href="#">Careers</a></li>
                         <li><a href="#">Press</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="footer-column">
                     <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="#">Help Center</a></li>
+                    <ul>
+                        <li><a href="faq.html">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 ThreadSync. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-                        </svg>
-                    </a>
+                <p>© 2024 ThreadSync. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
                 </div>
             </div>
         </div>

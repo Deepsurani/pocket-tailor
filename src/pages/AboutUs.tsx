@@ -51,7 +51,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <Scissors className="h-6 w-6 text-accent" />
-            <span className="font-display text-xl font-bold text-primary">TailorMatch</span>
+            <span className="font-display text-xl font-bold text-primary">ThreadSync</span>
           </Link>
           <nav className="flex items-center gap-4">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -68,7 +68,7 @@ const AboutUs = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-display text-4xl md:text-5xl font-bold text-primary mb-6">
-            About TailorMatch
+            About ThreadSync
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Connecting you with skilled tailors to create perfectly fitted clothing that reflects your unique style.
@@ -84,7 +84,7 @@ const AboutUs = () => {
               <h2 className="font-display text-3xl font-bold text-primary mb-6">Our Story</h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
-                  TailorMatch was born from a simple frustration: finding a skilled tailor shouldn't be so difficult. 
+                  ThreadSync was born from a simple frustration: finding a skilled tailor shouldn't be so difficult. 
                   In an age of fast fashion and off-the-rack clothing, we believe there's still immense value in 
                   custom-tailored garments.
                 </p>
@@ -139,7 +139,7 @@ const AboutUs = () => {
         <div className="container mx-auto px-4">
           <h2 className="font-display text-3xl font-bold text-primary text-center mb-4">Meet Our Team</h2>
           <p className="text-muted-foreground text-center mb-12 max-w-xl mx-auto">
-            The passionate people behind TailorMatch working to revolutionize the tailoring industry.
+            The passionate people behind ThreadSync working to revolutionize the tailoring industry.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {teamMembers.map((member, index) => (
@@ -177,7 +177,7 @@ const AboutUs = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-border/50">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} TailorMatch. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ThreadSync. All rights reserved.</p>
         </div>
       </footer>
     </div>

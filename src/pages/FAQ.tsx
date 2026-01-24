@@ -9,15 +9,15 @@ const FAQ = () => {
       title: "Getting Started",
       questions: [
         {
-          question: "How does TailorMatch work?",
-          answer: "TailorMatch connects you with skilled local tailors. Simply browse our verified tailor profiles, compare their specialties and reviews, book an appointment, and get your measurements taken. Your tailor will then create custom-fitted garments just for you.",
+          question: "How does ThreadSync work?",
+          answer: "ThreadSync connects you with skilled local tailors. Simply browse our verified tailor profiles, compare their specialties and reviews, book an appointment, and get your measurements taken. Your tailor will then create custom-fitted garments just for you.",
         },
         {
           question: "How do I find a tailor near me?",
           answer: "Once you create an account, you can browse tailors by location, specialty, and customer ratings. Our platform shows you verified tailors in your area along with their portfolios, pricing, and availability.",
         },
         {
-          question: "Do I need to create an account to use TailorMatch?",
+          question: "Do I need to create an account to use ThreadSync?",
           answer: "You can browse tailor profiles without an account, but you'll need to sign up to book appointments, save your measurements, and place orders. Creating an account is free and takes less than a minute.",
         },
       ],
@@ -81,12 +81,12 @@ const FAQ = () => {
       title: "For Tailors",
       questions: [
         {
-          question: "How can I join TailorMatch as a tailor?",
+          question: "How can I join ThreadSync as a tailor?",
           answer: "We're always looking for skilled tailors! Click 'Become a Tailor' on our homepage to apply. We'll review your portfolio, verify your credentials, and get you set up on our platform within a few business days.",
         },
         {
           question: "What are the fees for tailors?",
-          answer: "TailorMatch charges a small commission on completed orders. There are no monthly fees or upfront costs—you only pay when you earn. Contact us for current commission rates.",
+          answer: "ThreadSync charges a small commission on completed orders. There are no monthly fees or upfront costs—you only pay when you earn. Contact us for current commission rates.",
         },
         {
           question: "How do I manage my orders and schedule?",
@@ -103,7 +103,7 @@ const FAQ = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <Scissors className="h-6 w-6 text-accent" />
-            <span className="font-display text-xl font-bold text-primary">TailorMatch</span>
+            <span className="font-display text-xl font-bold text-primary">ThreadSync</span>
           </Link>
           <nav className="flex items-center gap-4">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -188,7 +188,7 @@ const FAQ = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-border/50">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} TailorMatch. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ThreadSync. All rights reserved.</p>
         </div>
       </footer>
     </div>

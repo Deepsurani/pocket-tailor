@@ -52,7 +52,7 @@ const Signup = () => {
       setIsLoading(false);
       toast({
         title: "Account created!",
-        description: "Welcome to TailorMatch. You can now sign in.",
+        description: "Welcome to ThreadSync. You can now sign in.",
       });
       navigate("/login");
     }, 1000);
@@ -64,13 +64,13 @@ const Signup = () => {
         {/* Logo */}
         <div className="flex items-center justify-center gap-2 mb-8">
           <Scissors className="h-8 w-8 text-accent" />
-          <span className="font-display text-2xl font-bold text-primary">TailorMatch</span>
+          <span className="font-display text-2xl font-bold text-primary">ThreadSync</span>
         </div>
 
         <Card className="border-border/50 shadow-lg">
           <CardHeader className="text-center">
             <CardTitle className="text-2xl font-display text-primary">Create Account</CardTitle>
-            <CardDescription>Join TailorMatch and find your perfect tailor</CardDescription>
+            <CardDescription>Join ThreadSync and find your perfect tailor</CardDescription>
           </CardHeader>
 
           <form onSubmit={handleSubmit}>

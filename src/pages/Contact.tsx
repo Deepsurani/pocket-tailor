@@ -51,7 +51,7 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: ["hello@tailormatch.com", "support@tailormatch.com"],
+      details: ["hello@threadsync.com", "support@threadsync.com"],
     },
     {
       icon: Clock,
@@ -67,7 +67,7 @@ const Contact = () => {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
             <Scissors className="h-6 w-6 text-accent" />
-            <span className="font-display text-xl font-bold text-primary">TailorMatch</span>
+            <span className="font-display text-xl font-bold text-primary">ThreadSync</span>
           </Link>
           <nav className="flex items-center gap-4">
             <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -218,7 +218,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="TailorMatch Location"
+                  title="ThreadSync Location"
                   className="w-full"
                 />
               </div>
@@ -230,7 +230,7 @@ const Contact = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-border/50">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} TailorMatch. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} ThreadSync. All rights reserved.</p>
         </div>
       </footer>
     </div>

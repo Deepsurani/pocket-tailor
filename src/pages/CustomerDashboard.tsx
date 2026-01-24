@@ -117,7 +117,7 @@ const CustomerDashboard = () => {
               <div className="h-10 w-10 rounded-lg bg-gradient-navy flex items-center justify-center">
                 <Scissors className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold font-serif text-primary">Pocket Tailor</span>
+              <span className="text-xl font-bold font-display text-primary">ThreadSync</span>
             </Link>
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="sm" asChild>

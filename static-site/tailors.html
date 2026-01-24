@@ -34,156 +34,321 @@
     <header class="header">
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="6" cy="6" r="3"/>
-                    <path d="m6 9 6 6 6-6"/>
-                    <circle cx="18" cy="18" r="3"/>
-                </svg>
-                <span>ThreadSync</span>
+                <div class="logo-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"/>
+                        <path d="M8.12 8.12 12 12"/>
+                        <path d="M20 4 8.12 15.88"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <path d="M14.8 14.8 18 18"/>
+                    </svg>
+                </div>
+                <span class="logo-text">ThreadSync</span>
             </a>
             <nav class="nav-desktop">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="tailors.html" class="nav-link active">Find Tailors</a>
                 <a href="about.html" class="nav-link">About</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </nav>
             <div class="header-actions">
-                <a href="login.html" class="btn btn-ghost">Sign In</a>
-                <a href="signup.html" class="btn btn-gold">Get Started</a>
+                <a href="login.html" class="btn btn-ghost btn-default">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default">Get Started</a>
             </div>
             <button class="mobile-menu-btn" aria-label="Toggle menu">
                 <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
+                    <line x1="4" x2="20" y1="12" y2="12"/>
+                    <line x1="4" x2="20" y1="6" y2="6"/>
+                    <line x1="4" x2="20" y1="18" y2="18"/>
                 </svg>
                 <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
                 </svg>
             </button>
         </div>
         <nav class="mobile-menu hidden">
             <a href="index.html" class="mobile-nav-link">Home</a>
-            <a href="tailors.html" class="mobile-nav-link active">Find Tailors</a>
             <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="faq.html" class="mobile-nav-link">FAQ</a>
             <a href="contact.html" class="mobile-nav-link">Contact</a>
-            <a href="login.html" class="mobile-nav-link">Sign In</a>
-            <a href="signup.html" class="btn btn-gold" style="margin-top: 1rem;">Get Started</a>
+            <div class="mobile-menu-actions">
+                <a href="login.html" class="btn btn-ghost btn-default w-full">Sign In</a>
+                <a href="signup.html" class="btn btn-gold btn-default w-full">Get Started</a>
+            </div>
         </nav>
     </header>
 
-    <main class="tailors-page">
-        <!-- Hero -->
-        <section class="tailors-hero">
+    <main>
+        <!-- Hero Section -->
+        <section class="page-header" style="padding-bottom: 2rem;">
             <div class="container">
                 <h1>Find Your Perfect Tailor</h1>
-                <p>Browse our network of skilled tailors and craftsmen</p>
+                <p style="margin-bottom: 2rem;">Browse our network of verified tailors and find the perfect match for your style.</p>
                 
-                <div class="search-filters">
-                    <div class="search-input-wrapper">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"/>
-                            <path d="m21 21-4.3-4.3"/>
-                        </svg>
-                        <input type="text" class="form-input" placeholder="Search by name or location...">
-                    </div>
-                    <select class="form-select filter-select">
-                        <option value="">All Specialties</option>
-                        <option value="bespoke">Bespoke Suits</option>
-                        <option value="alterations">Alterations</option>
-                        <option value="wedding">Wedding Attire</option>
-                        <option value="shirts">Custom Shirts</option>
-                    </select>
+                <!-- Search -->
+                <div style="max-width: 36rem; margin: 0 auto; position: relative;">
+                    <svg style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); width: 1.25rem; height: 1.25rem; color: hsl(var(--muted-foreground));" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.3-4.3"/>
+                    </svg>
+                    <input type="text" id="tailor-search" class="form-input" placeholder="Search by name, location, or specialty..." style="padding-left: 3rem; height: 3rem;">
+                </div>
+
+                <!-- Specialty Filters -->
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 1.5rem;" id="specialty-filters">
+                    <button class="btn btn-gold btn-sm filter-btn active" data-specialty="all">All</button>
+                    <button class="btn btn-hero-outline btn-sm filter-btn" data-specialty="Wedding Suits">Wedding Suits</button>
+                    <button class="btn btn-hero-outline btn-sm filter-btn" data-specialty="Formal Wear">Formal Wear</button>
+                    <button class="btn btn-hero-outline btn-sm filter-btn" data-specialty="Alterations">Alterations</button>
+                    <button class="btn btn-hero-outline btn-sm filter-btn" data-specialty="Casual Wear">Casual Wear</button>
+                    <button class="btn btn-hero-outline btn-sm filter-btn" data-specialty="Traditional">Traditional</button>
+                    <button class="btn btn-hero-outline btn-sm filter-btn" data-specialty="Bridal">Bridal</button>
                 </div>
             </div>
         </section>
 
-        <!-- Results -->
-        <section class="tailors-results">
+        <!-- Tailors Grid -->
+        <section style="padding: 3rem 0 5rem;">
             <div class="container">
-                <div class="results-header">
-                    <span class="results-count">6 tailors found</span>
-                </div>
+                <p style="color: hsl(var(--muted-foreground)); margin-bottom: 2rem;" id="tailor-count">Showing <strong style="color: hsl(var(--foreground));">6</strong> tailors</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;" id="tailors-grid">
+                    <!-- Tailor Card 1 -->
+                    <div class="tailor-card-full" data-specialties="Wedding Suits,Formal Wear,Alterations" data-name="Elite Stitch Studio" data-city="New York">
+                        <div style="height: 12rem; background: hsl(var(--muted)); overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr);">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: hsl(var(--gold)); color: hsl(var(--primary)); padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.25rem;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified
+                        </div>
+                        <div style="padding: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Elite Stitch Studio" style="width: 3.5rem; height: 3.5rem; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold) / 0.2);">
+                                <div style="flex: 1; min-width: 0;">
+                                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.125rem; font-weight: 600; color: hsl(var(--foreground)); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Elite Stitch Studio</h3>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        New York, NY
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 75%, 55%)" stroke="hsl(38, 75%, 55%)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <span style="font-weight: 500; font-size: 0.875rem;">4.9</span>
+                                        <span style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">(156 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Wedding Suits</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Formal Wear</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Alterations</span>
+                            </div>
+                            <div style="font-size: 0.875rem; margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Custom Suit</span><span style="font-weight: 500; color: hsl(var(--foreground));">$450+</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Alterations</span><span style="font-weight: 500; color: hsl(var(--foreground));">$25+</span></div>
+                            </div>
+                            <a href="tailor-detail.html" class="btn btn-gold btn-default w-full">View Profile</a>
+                        </div>
+                    </div>
 
-                <div class="tailors-grid">
-                    <a href="tailor-detail.html" class="tailor-card">
-                        <div class="tailor-image">
-                            <span class="tailor-badge">15+ Years Exp.</span>
+                    <!-- Tailor Card 2 -->
+                    <div class="tailor-card-full" data-specialties="Casual Wear,Dresses,Contemporary" data-name="Modern Thread Co." data-city="Los Angeles">
+                        <div style="height: 12rem; background: hsl(var(--muted)); overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr);">
+                            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div class="tailor-info">
-                            <h3>Elite Tailors & Co.</h3>
-                            <p class="tailor-specialty">Bespoke Suits</p>
-                            <p class="tailor-location">📍 Manhattan, NY</p>
-                            <div class="tailor-rating">⭐ 4.9 (128 reviews)</div>
+                        <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: hsl(var(--gold)); color: hsl(var(--primary)); padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.25rem;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified
                         </div>
-                    </a>
+                        <div style="padding: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Modern Thread Co." style="width: 3.5rem; height: 3.5rem; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold) / 0.2);">
+                                <div style="flex: 1; min-width: 0;">
+                                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.125rem; font-weight: 600; color: hsl(var(--foreground));">Modern Thread Co.</h3>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Los Angeles, CA
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 75%, 55%)" stroke="hsl(38, 75%, 55%)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <span style="font-weight: 500; font-size: 0.875rem;">4.8</span>
+                                        <span style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">(98 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Casual Wear</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Dresses</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Contemporary</span>
+                            </div>
+                            <div style="font-size: 0.875rem; margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Custom Dress</span><span style="font-weight: 500; color: hsl(var(--foreground));">$200+</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Shirt Tailoring</span><span style="font-weight: 500; color: hsl(var(--foreground));">$80+</span></div>
+                            </div>
+                            <a href="tailor-detail.html" class="btn btn-gold btn-default w-full">View Profile</a>
+                        </div>
+                    </div>
 
-                    <a href="tailor-detail.html" class="tailor-card">
-                        <div class="tailor-image">
-                            <span class="tailor-badge">10+ Years Exp.</span>
+                    <!-- Tailor Card 3 -->
+                    <div class="tailor-card-full" data-specialties="Traditional,Ethnic Wear,Blazers" data-name="Heritage Tailors" data-city="Chicago">
+                        <div style="height: 12rem; background: hsl(var(--muted)); overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr);">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1621072156002-e2fccdc0b176?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div class="tailor-info">
-                            <h3>Modern Stitch Studio</h3>
-                            <p class="tailor-specialty">Alterations</p>
-                            <p class="tailor-location">📍 Brooklyn, NY</p>
-                            <div class="tailor-rating">⭐ 4.8 (96 reviews)</div>
+                        <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: hsl(var(--gold)); color: hsl(var(--primary)); padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.25rem;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified
                         </div>
-                    </a>
+                        <div style="padding: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Heritage Tailors" style="width: 3.5rem; height: 3.5rem; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold) / 0.2);">
+                                <div style="flex: 1; min-width: 0;">
+                                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.125rem; font-weight: 600; color: hsl(var(--foreground));">Heritage Tailors</h3>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Chicago, IL
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 75%, 55%)" stroke="hsl(38, 75%, 55%)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <span style="font-weight: 500; font-size: 0.875rem;">4.7</span>
+                                        <span style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">(234 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Traditional</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Ethnic Wear</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Blazers</span>
+                            </div>
+                            <div style="font-size: 0.875rem; margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Blazer</span><span style="font-weight: 500; color: hsl(var(--foreground));">$180+</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Traditional Outfit</span><span style="font-weight: 500; color: hsl(var(--foreground));">$300+</span></div>
+                            </div>
+                            <a href="tailor-detail.html" class="btn btn-gold btn-default w-full">View Profile</a>
+                        </div>
+                    </div>
 
-                    <a href="tailor-detail.html" class="tailor-card">
-                        <div class="tailor-image">
-                            <span class="tailor-badge">20+ Years Exp.</span>
+                    <!-- Tailor Card 4 -->
+                    <div class="tailor-card-full" data-specialties="Evening Gowns,Bridal,Luxury" data-name="Silk & Needle" data-city="Miami">
+                        <div style="height: 12rem; background: hsl(var(--muted)); overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr);">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div class="tailor-info">
-                            <h3>Classic Cuts Tailoring</h3>
-                            <p class="tailor-specialty">Wedding Attire</p>
-                            <p class="tailor-location">📍 Queens, NY</p>
-                            <div class="tailor-rating">⭐ 4.9 (156 reviews)</div>
+                        <div style="padding: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="Silk & Needle" style="width: 3.5rem; height: 3.5rem; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold) / 0.2);">
+                                <div style="flex: 1; min-width: 0;">
+                                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.125rem; font-weight: 600; color: hsl(var(--foreground));">Silk & Needle</h3>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Miami, FL
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 75%, 55%)" stroke="hsl(38, 75%, 55%)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <span style="font-weight: 500; font-size: 0.875rem;">4.6</span>
+                                        <span style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">(67 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Evening Gowns</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Bridal</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Luxury</span>
+                            </div>
+                            <div style="font-size: 0.875rem; margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Evening Gown</span><span style="font-weight: 500; color: hsl(var(--foreground));">$600+</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Bridal Alterations</span><span style="font-weight: 500; color: hsl(var(--foreground));">$150+</span></div>
+                            </div>
+                            <a href="tailor-detail.html" class="btn btn-gold btn-default w-full">View Profile</a>
                         </div>
-                    </a>
+                    </div>
 
-                    <a href="tailor-detail.html" class="tailor-card">
-                        <div class="tailor-image">
-                            <span class="tailor-badge">8+ Years Exp.</span>
+                    <!-- Tailor Card 5 -->
+                    <div class="tailor-card-full" data-specialties="Streetwear,Modern Fit,Denim" data-name="Urban Fit Studio" data-city="Seattle">
+                        <div style="height: 12rem; background: hsl(var(--muted)); overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr);">
+                            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div class="tailor-info">
-                            <h3>Urban Thread Works</h3>
-                            <p class="tailor-specialty">Custom Shirts</p>
-                            <p class="tailor-location">📍 Williamsburg, NY</p>
-                            <div class="tailor-rating">⭐ 4.7 (84 reviews)</div>
+                        <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: hsl(var(--gold)); color: hsl(var(--primary)); padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.25rem;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified
                         </div>
-                    </a>
+                        <div style="padding: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Urban Fit Studio" style="width: 3.5rem; height: 3.5rem; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold) / 0.2);">
+                                <div style="flex: 1; min-width: 0;">
+                                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.125rem; font-weight: 600; color: hsl(var(--foreground));">Urban Fit Studio</h3>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Seattle, WA
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 75%, 55%)" stroke="hsl(38, 75%, 55%)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <span style="font-weight: 500; font-size: 0.875rem;">4.8</span>
+                                        <span style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">(189 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Streetwear</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Modern Fit</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Denim</span>
+                            </div>
+                            <div style="font-size: 0.875rem; margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Custom Jeans</span><span style="font-weight: 500; color: hsl(var(--foreground));">$120+</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Jacket Customization</span><span style="font-weight: 500; color: hsl(var(--foreground));">$90+</span></div>
+                            </div>
+                            <a href="tailor-detail.html" class="btn btn-gold btn-default w-full">View Profile</a>
+                        </div>
+                    </div>
 
-                    <a href="tailor-detail.html" class="tailor-card">
-                        <div class="tailor-image">
-                            <span class="tailor-badge">25+ Years Exp.</span>
+                    <!-- Tailor Card 6 -->
+                    <div class="tailor-card-full" data-specialties="Bespoke Suits,Executive Wear,Premium" data-name="Royal Threads" data-city="Boston">
+                        <div style="height: 12rem; background: hsl(var(--muted)); overflow: hidden; display: grid; grid-template-columns: repeat(3, 1fr);">
+                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=200&h=150&fit=crop" alt="Portfolio" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
-                        <div class="tailor-info">
-                            <h3>Heritage Menswear</h3>
-                            <p class="tailor-specialty">Bespoke Suits</p>
-                            <p class="tailor-location">📍 Upper East Side, NY</p>
-                            <div class="tailor-rating">⭐ 5.0 (203 reviews)</div>
+                        <div style="position: absolute; top: 0.75rem; right: 0.75rem; background: hsl(var(--gold)); color: hsl(var(--primary)); padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 500; display: flex; align-items: center; gap: 0.25rem;">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            Verified
                         </div>
-                    </a>
-
-                    <a href="tailor-detail.html" class="tailor-card">
-                        <div class="tailor-image">
-                            <span class="tailor-badge">12+ Years Exp.</span>
+                        <div style="padding: 1.25rem;">
+                            <div style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Royal Threads" style="width: 3.5rem; height: 3.5rem; border-radius: 9999px; object-fit: cover; border: 2px solid hsl(var(--gold) / 0.2);">
+                                <div style="flex: 1; min-width: 0;">
+                                    <h3 style="font-family: 'Orbitron', sans-serif; font-size: 1.125rem; font-weight: 600; color: hsl(var(--foreground));">Royal Threads</h3>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: hsl(var(--muted-foreground));">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        Boston, MA
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 0.25rem; margin-top: 0.25rem;">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="hsl(38, 75%, 55%)" stroke="hsl(38, 75%, 55%)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                        <span style="font-weight: 500; font-size: 0.875rem;">4.9</span>
+                                        <span style="color: hsl(var(--muted-foreground)); font-size: 0.875rem;">(312 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 1rem;">
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Bespoke Suits</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Executive Wear</span>
+                                <span style="background: hsl(var(--secondary)); color: hsl(var(--secondary-foreground)); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem;">Premium</span>
+                            </div>
+                            <div style="font-size: 0.875rem; margin-bottom: 1rem;">
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Bespoke Suit</span><span style="font-weight: 500; color: hsl(var(--foreground));">$1200+</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 0.25rem 0; color: hsl(var(--muted-foreground));"><span>Executive Shirt</span><span style="font-weight: 500; color: hsl(var(--foreground));">$150+</span></div>
+                            </div>
+                            <a href="tailor-detail.html" class="btn btn-gold btn-default w-full">View Profile</a>
                         </div>
-                        <div class="tailor-info">
-                            <h3>Precision Tailoring</h3>
-                            <p class="tailor-specialty">Alterations</p>
-                            <p class="tailor-location">📍 SoHo, NY</p>
-                            <div class="tailor-rating">⭐ 4.8 (112 reviews)</div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="no-results" style="display: none;">
-                    <h3>No tailors found</h3>
-                    <p>Try adjusting your search or filter criteria</p>
-                    <button class="btn btn-outline clear-filters">Clear Filters</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -192,13 +357,26 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2024 ThreadSync. All rights reserved.</p>
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>© 2024 ThreadSync. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <div id="toast" class="toast hidden"></div>
     <script src="js/main.js"></script>
+    <style>
+        .tailor-card-full {
+            background: hsl(var(--card));
+            border: 1px solid hsl(var(--border) / 0.5);
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .tailor-card-full:hover {
+            box-shadow: var(--shadow-elevated);
+        }
+    </style>
 </body>
 </html>

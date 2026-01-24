@@ -21,15 +21,15 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Services
-            </a>
-            <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
-              How It Works
-            </a>
+          <nav className="hidden md:flex items-center gap-6">
             <Link to="/tailors" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
               Find Tailors
+            </Link>
+            <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              About
+            </Link>
+            <Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              FAQ
             </Link>
             <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
               Contact
@@ -64,14 +64,14 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
             <nav className="flex flex-col gap-4">
-              <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
-                Services
-              </a>
-              <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
-                How It Works
-              </a>
               <Link to="/tailors" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
                 Find Tailors
+              </Link>
+              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
+                About
+              </Link>
+              <Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
+                FAQ
               </Link>
               <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
                 Contact

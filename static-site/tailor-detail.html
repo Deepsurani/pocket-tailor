@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Tailors & Co. - ThreadSync</title>
+    <meta name="description" content="View profile, services, and reviews for Elite Tailors & Co. Book your appointment today.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="6" cy="6" r="3"/>
+                    <path d="m6 9 6 6 6-6"/>
+                    <circle cx="18" cy="18" r="3"/>
+                </svg>
+                <span>ThreadSync</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="tailors.html" class="nav-link">Find Tailors</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-ghost">Sign In</a>
+                <a href="signup.html" class="btn btn-gold">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-menu hidden">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="tailors.html" class="mobile-nav-link">Find Tailors</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="login.html" class="mobile-nav-link">Sign In</a>
+            <a href="signup.html" class="btn btn-gold" style="margin-top: 1rem;">Get Started</a>
+        </nav>
+    </header>
+
+    <main class="tailor-detail-page">
+        <div class="container">
+            <a href="tailors.html" class="back-button">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m12 19-7-7 7-7"/>
+                    <path d="M19 12H5"/>
+                </svg>
+                Back to Tailors
+            </a>
+
+            <!-- Portfolio Gallery -->
+            <div class="portfolio-gallery">
+                <div class="portfolio-item"></div>
+                <div class="portfolio-item"></div>
+                <div class="portfolio-item"></div>
+                <div class="portfolio-item"></div>
+            </div>
+
+            <div class="tailor-detail-content">
+                <!-- Main Content -->
+                <div class="tailor-main">
+                    <div class="tailor-profile">
+                        <div class="tailor-avatar"></div>
+                        <div class="tailor-profile-info">
+                            <h1>
+                                Elite Tailors & Co.
+                                <span class="verified-badge">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                    Verified
+                                </span>
+                            </h1>
+                            <div class="tailor-meta">
+                                <span>📍 Manhattan, NY</span>
+                                <span>⭐ 4.9 (128 reviews)</span>
+                                <span>🎯 15+ Years Experience</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tailor-section">
+                        <h3>About</h3>
+                        <p style="color: var(--muted-foreground); margin-top: 0.5rem;">
+                            With over 15 years of experience in bespoke tailoring, Elite Tailors & Co. has established itself as Manhattan's premier destination for custom suits and formal wear. Our team of master craftsmen combines traditional techniques with modern styling to create garments that are truly one-of-a-kind.
+                        </p>
+                    </div>
+
+                    <div class="tailor-section">
+                        <h3>Specialties</h3>
+                        <div class="specialties-list">
+                            <span class="specialty-tag">Bespoke Suits</span>
+                            <span class="specialty-tag">Formal Wear</span>
+                            <span class="specialty-tag">Wedding Attire</span>
+                            <span class="specialty-tag">Custom Shirts</span>
+                        </div>
+                    </div>
+
+                    <div class="tailor-section">
+                        <h3>Services & Pricing</h3>
+                        <div class="services-list">
+                            <div class="service-item">
+                                <div class="service-item-info">
+                                    <h4>Bespoke Suit</h4>
+                                    <p>Full custom suit with consultation</p>
+                                </div>
+                                <span class="service-item-price">From $899</span>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-item-info">
+                                    <h4>Custom Shirt</h4>
+                                    <p>Made-to-measure dress shirt</p>
+                                </div>
+                                <span class="service-item-price">From $149</span>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-item-info">
+                                    <h4>Alterations</h4>
+                                    <p>Suit and jacket alterations</p>
+                                </div>
+                                <span class="service-item-price">From $45</span>
+                            </div>
+                            <div class="service-item">
+                                <div class="service-item-info">
+                                    <h4>Wedding Package</h4>
+                                    <p>Groom's complete wedding attire</p>
+                                </div>
+                                <span class="service-item-price">From $1,299</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-section">
+                        <h3>Customer Reviews</h3>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="review-author">Michael R.</span>
+                                <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="review-text">"Exceptional quality and attention to detail. My suit fits perfectly and the craftsmanship is outstanding. Highly recommend!"</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="review-author">James T.</span>
+                                <span class="review-rating">⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="review-text">"Best tailoring experience I've ever had. The team was professional and patient, taking time to understand exactly what I wanted."</p>
+                        </div>
+
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="review-author">David L.</span>
+                                <span class="review-rating">⭐⭐⭐⭐</span>
+                            </div>
+                            <p class="review-text">"Great service and quality. The suit was ready on time and looked fantastic. Will definitely be coming back."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="tailor-sidebar">
+                    <div class="card contact-card">
+                        <h3>Book an Appointment</h3>
+                        <a href="booking.html" class="btn btn-gold" style="width: 100%; margin-bottom: 1rem;">Book Now</a>
+                        
+                        <div class="contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span>+1 (555) 234-5678</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span>info@elitetailors.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>123 Fifth Avenue, Manhattan, NY 10001</span>
+                        </div>
+
+                        <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--border);">
+                        
+                        <button class="btn btn-outline" style="width: 100%;">Send Message</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 ThreadSync. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="js/main.js"></script>
+</body>
+</html>

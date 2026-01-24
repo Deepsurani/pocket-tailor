@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Tailors - ThreadSync</title>
+    <meta name="description" content="Browse and find skilled tailors in your area for custom suits, alterations, and more.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="6" cy="6" r="3"/>
+                    <path d="m6 9 6 6 6-6"/>
+                    <circle cx="18" cy="18" r="3"/>
+                </svg>
+                <span>ThreadSync</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="tailors.html" class="nav-link active">Find Tailors</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-ghost">Sign In</a>
+                <a href="signup.html" class="btn btn-gold">Get Started</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+                <svg class="close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+        </div>
+        <nav class="mobile-menu hidden">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="tailors.html" class="mobile-nav-link active">Find Tailors</a>
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="login.html" class="mobile-nav-link">Sign In</a>
+            <a href="signup.html" class="btn btn-gold" style="margin-top: 1rem;">Get Started</a>
+        </nav>
+    </header>
+
+    <main class="tailors-page">
+        <!-- Hero -->
+        <section class="tailors-hero">
+            <div class="container">
+                <h1>Find Your Perfect Tailor</h1>
+                <p>Browse our network of skilled tailors and craftsmen</p>
+                
+                <div class="search-filters">
+                    <div class="search-input-wrapper">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="m21 21-4.3-4.3"/>
+                        </svg>
+                        <input type="text" class="form-input" placeholder="Search by name or location...">
+                    </div>
+                    <select class="form-select filter-select">
+                        <option value="">All Specialties</option>
+                        <option value="bespoke">Bespoke Suits</option>
+                        <option value="alterations">Alterations</option>
+                        <option value="wedding">Wedding Attire</option>
+                        <option value="shirts">Custom Shirts</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="tailors-results">
+            <div class="container">
+                <div class="results-header">
+                    <span class="results-count">6 tailors found</span>
+                </div>
+
+                <div class="tailors-grid">
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <span class="tailor-badge">15+ Years Exp.</span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Elite Tailors & Co.</h3>
+                            <p class="tailor-specialty">Bespoke Suits</p>
+                            <p class="tailor-location">📍 Manhattan, NY</p>
+                            <div class="tailor-rating">⭐ 4.9 (128 reviews)</div>
+                        </div>
+                    </a>
+
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <span class="tailor-badge">10+ Years Exp.</span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Modern Stitch Studio</h3>
+                            <p class="tailor-specialty">Alterations</p>
+                            <p class="tailor-location">📍 Brooklyn, NY</p>
+                            <div class="tailor-rating">⭐ 4.8 (96 reviews)</div>
+                        </div>
+                    </a>
+
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <span class="tailor-badge">20+ Years Exp.</span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Classic Cuts Tailoring</h3>
+                            <p class="tailor-specialty">Wedding Attire</p>
+                            <p class="tailor-location">📍 Queens, NY</p>
+                            <div class="tailor-rating">⭐ 4.9 (156 reviews)</div>
+                        </div>
+                    </a>
+
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <span class="tailor-badge">8+ Years Exp.</span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Urban Thread Works</h3>
+                            <p class="tailor-specialty">Custom Shirts</p>
+                            <p class="tailor-location">📍 Williamsburg, NY</p>
+                            <div class="tailor-rating">⭐ 4.7 (84 reviews)</div>
+                        </div>
+                    </a>
+
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <span class="tailor-badge">25+ Years Exp.</span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Heritage Menswear</h3>
+                            <p class="tailor-specialty">Bespoke Suits</p>
+                            <p class="tailor-location">📍 Upper East Side, NY</p>
+                            <div class="tailor-rating">⭐ 5.0 (203 reviews)</div>
+                        </div>
+                    </a>
+
+                    <a href="tailor-detail.html" class="tailor-card">
+                        <div class="tailor-image">
+                            <span class="tailor-badge">12+ Years Exp.</span>
+                        </div>
+                        <div class="tailor-info">
+                            <h3>Precision Tailoring</h3>
+                            <p class="tailor-specialty">Alterations</p>
+                            <p class="tailor-location">📍 SoHo, NY</p>
+                            <div class="tailor-rating">⭐ 4.8 (112 reviews)</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="no-results" style="display: none;">
+                    <h3>No tailors found</h3>
+                    <p>Try adjusting your search or filter criteria</p>
+                    <button class="btn btn-outline clear-filters">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 ThreadSync. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="js/main.js"></script>
+</body>
+</html>

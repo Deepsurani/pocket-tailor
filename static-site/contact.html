@@ -105,9 +105,9 @@
             <div class="container">
                 <div style="display: grid; grid-template-columns: 1fr; gap: 3rem;">
                     <!-- Contact Form -->
-                    <div>
+                    <div class="scroll-fade-up">
                         <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Send Us a Message</h2>
-                        <div class="form-card">
+                        <div class="form-card card-reveal scroll-animate">
                             <form id="contact-form">
                                 <div class="form-row">
                                     <div class="form-group">
@@ -139,10 +139,10 @@
                     </div>
 
                     <!-- Contact Info -->
-                    <div>
+                    <div class="scroll-fade-up" data-scroll-delay="200">
                         <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; color: hsl(var(--foreground));">Contact Information</h2>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                            <div style="background: hsl(var(--card)); border: 1px solid hsl(var(--border) / 0.5); border-radius: 0.75rem; padding: 1.25rem;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 2rem;" class="scroll-stagger">
+                            <div class="scroll-stagger-item card-reveal" style="background: hsl(var(--card)); border: 1px solid hsl(var(--border) / 0.5); border-radius: 0.75rem; padding: 1.25rem;">
                                 <div style="display: flex; align-items: flex-start; gap: 1rem;">
                                     <div style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: hsl(var(--gold) / 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(38, 75%, 55%)" stroke-width="2">
@@ -157,7 +157,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div style="background: hsl(var(--card)); border: 1px solid hsl(var(--border) / 0.5); border-radius: 0.75rem; padding: 1.25rem;">
+                            <div class="scroll-stagger-item card-reveal" style="background: hsl(var(--card)); border: 1px solid hsl(var(--border) / 0.5); border-radius: 0.75rem; padding: 1.25rem;">
                                 <div style="display: flex; align-items: flex-start; gap: 1rem;">
                                     <div style="width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: hsl(var(--gold) / 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="hsl(38, 75%, 55%)" stroke-width="2">
@@ -283,5 +283,6 @@
 
     <div id="toast" class="toast hidden"></div>
     <script src="js/main.js"></script>
+    <script src="js/scroll-animations.js"></script>
 </body>
 </html>

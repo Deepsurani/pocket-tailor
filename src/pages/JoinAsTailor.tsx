@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Scissors, Upload, CheckCircle, Star, Users, TrendingUp, ArrowRight, ImagePlus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import Footer from "@/components/landing/Footer";
 
 const JoinAsTailor = () => {
   const [formData, setFormData] = useState({
@@ -250,12 +251,7 @@ const JoinAsTailor = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 border-t border-border/50">
-        <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} ThreadSync. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

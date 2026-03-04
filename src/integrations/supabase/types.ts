@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      TailorTbl: {
+        Row: {
+          Address: string
+          AddressProof: string | null
+          AdharCard: string | null
+          AreaId: string | null
+          CityId: string | null
+          EntryDate: string | null
+          IsVerified: boolean | null
+          OwnerPhoto: string | null
+          ShopBanarPhoto: string | null
+          ShopContactNo: string
+          ShopLogo: string | null
+          ShopName: string
+          ShopPhoto: string | null
+          TailorId: string
+          UserId: string | null
+          VerifiedDate: string | null
+        }
+        Insert: {
+          Address: string
+          AddressProof?: string | null
+          AdharCard?: string | null
+          AreaId?: string | null
+          CityId?: string | null
+          EntryDate?: string | null
+          IsVerified?: boolean | null
+          OwnerPhoto?: string | null
+          ShopBanarPhoto?: string | null
+          ShopContactNo: string
+          ShopLogo?: string | null
+          ShopName: string
+          ShopPhoto?: string | null
+          TailorId?: string
+          UserId?: string | null
+          VerifiedDate?: string | null
+        }
+        Update: {
+          Address?: string
+          AddressProof?: string | null
+          AdharCard?: string | null
+          AreaId?: string | null
+          CityId?: string | null
+          EntryDate?: string | null
+          IsVerified?: boolean | null
+          OwnerPhoto?: string | null
+          ShopBanarPhoto?: string | null
+          ShopContactNo?: string
+          ShopLogo?: string | null
+          ShopName?: string
+          ShopPhoto?: string | null
+          TailorId?: string
+          UserId?: string | null
+          VerifiedDate?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

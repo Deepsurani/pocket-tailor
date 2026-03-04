@@ -69,7 +69,7 @@ const JoinAsTailor = () => {
         files.shopBannerPhoto ? uploadFile(files.shopBannerPhoto, "shop-banners") : Promise.resolve(null),
       ]);
 
-      const { error } = await supabase.from("TailorTbl").insert({
+      const { error } = await (supabase.from as any)("TailorTbl").insert({
         ShopName: formData.shopName,
         ShopContactNo: formData.shopContactNo,
         Address: formData.address,

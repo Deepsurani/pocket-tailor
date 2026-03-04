@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Scissors, Upload, CheckCircle, Star, Users, TrendingUp, ArrowRight, ImagePlus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import Footer from "@/components/landing/Footer";
 
 const JoinAsTailor = () => {
   const [formData, setFormData] = useState({

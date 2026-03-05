@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as Tailor - ThreadSync</title>
+    <meta name="description" content="Register your tailoring shop on ThreadSync. Reach more customers and grow your business with our platform.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Orbitron', 'sans-serif'],
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(40, 30%, 97%)',
+                        foreground: 'hsl(220, 30%, 15%)',
+                        card: { DEFAULT: 'hsl(0, 0%, 100%)', foreground: 'hsl(220, 30%, 15%)' },
+                        primary: { DEFAULT: 'hsl(220, 40%, 20%)', foreground: 'hsl(40, 30%, 97%)' },
+                        secondary: { DEFAULT: 'hsl(40, 25%, 92%)', foreground: 'hsl(220, 30%, 15%)' },
+                        muted: { DEFAULT: 'hsl(40, 20%, 94%)', foreground: 'hsl(220, 15%, 45%)' },
+                        accent: { DEFAULT: 'hsl(38, 75%, 55%)', foreground: 'hsl(220, 40%, 15%)' },
+                        destructive: { DEFAULT: 'hsl(0, 84%, 60%)', foreground: 'hsl(0, 0%, 100%)' },
+                        border: 'hsl(40, 20%, 88%)',
+                        input: 'hsl(40, 20%, 88%)',
+                        ring: 'hsl(220, 40%, 20%)',
+                        gold: { DEFAULT: 'hsl(38, 75%, 55%)', light: 'hsl(40, 65%, 70%)' },
+                        navy: { DEFAULT: 'hsl(220, 40%, 20%)', light: 'hsl(220, 30%, 35%)' },
+                        cream: { DEFAULT: 'hsl(40, 30%, 97%)', dark: 'hsl(40, 25%, 92%)' },
+                        charcoal: 'hsl(220, 15%, 30%)',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="6" cy="6" r="3"/>
+                        <path d="M8.12 8.12 12 12"/>
+                        <path d="M20 4 8.12 15.88"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <path d="M14.8 14.8 18 18"/>
+                    </svg>
+                </div>
+                <span class="logo-text">ThreadSync</span>
+            </a>
+            <nav class="nav-desktop">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="tailors.html" class="nav-link">Tailors</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            <div class="header-actions">
+                <a href="login.html" class="btn btn-ghost btn-default">Sign In</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-accent/5 to-background">
+        <div class="container mx-auto px-4 text-center">
+            <span class="inline-block text-accent font-medium uppercase tracking-wider text-sm mb-4">Join Our Network</span>
+            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
+                Become a <span class="text-accent">ThreadSync</span> Tailor
+            </h1>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
+                Register your shop and connect with customers who value quality craftsmanship.
+            </p>
+            <a href="#application-form" class="btn btn-gold inline-flex items-center gap-2 px-8 py-3 rounded-lg font-semibold text-base">
+                Register Now
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16 md:py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="font-display text-3xl font-bold text-primary text-center mb-4">Why Join ThreadSync?</h2>
+            <p class="text-muted-foreground text-center max-w-xl mx-auto mb-12">We provide the tools and platform you need to succeed.</p>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Benefit 1 -->
+                <div class="bg-card border border-border/50 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="font-semibold text-primary mb-2">Reach More Customers</h3>
+                    <p class="text-sm text-muted-foreground">Get discovered by thousands of customers looking for skilled tailors.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="bg-card border border-border/50 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <h3 class="font-semibold text-primary mb-2">Grow Your Business</h3>
+                    <p class="text-sm text-muted-foreground">Manage bookings, track orders, and scale your business effortlessly.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="bg-card border border-border/50 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    </div>
+                    <h3 class="font-semibold text-primary mb-2">Build Your Reputation</h3>
+                    <p class="text-sm text-muted-foreground">Showcase your portfolio, collect reviews, and build trust.</p>
+                </div>
+                <!-- Benefit 4 -->
+                <div class="bg-card border border-border/50 rounded-xl p-6 text-center hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-accent"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h3 class="font-semibold text-primary mb-2">Flexible Schedule</h3>
+                    <p class="text-sm text-muted-foreground">Set your own availability and accept orders on your terms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form -->
+    <section id="application-form" class="py-16 md:py-20 bg-secondary/30">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="text-center mb-10">
+                <h2 class="font-display text-3xl font-bold text-primary mb-4">Register Your Shop</h2>
+                <p class="text-muted-foreground">Fill out the details below and our team will verify your application.</p>
+            </div>
+
+            <div class="bg-card border border-border/50 rounded-xl shadow-lg">
+                <div class="p-6 md:p-8">
+                    <form id="tailor-form" class="space-y-5">
+                        <!-- Shop Info -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label for="shopName" class="text-sm font-medium text-foreground">Shop Name *</label>
+                                <input type="text" id="shopName" name="shopName" placeholder="Your shop name" required
+                                    class="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="shopContactNo" class="text-sm font-medium text-foreground">Shop Contact No. *</label>
+                                <input type="tel" id="shopContactNo" name="shopContactNo" placeholder="+91 98765 43210" required
+                                    class="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div class="space-y-2">
+                            <label for="address" class="text-sm font-medium text-foreground">Full Address *</label>
+                            <input type="text" id="address" name="address" placeholder="Shop address" required
+                                class="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors">
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label for="cityId" class="text-sm font-medium text-foreground">City</label>
+                                <input type="text" id="cityId" name="cityId" placeholder="City"
+                                    class="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors">
+                            </div>
+                            <div class="space-y-2">
+                                <label for="areaId" class="text-sm font-medium text-foreground">Area</label>
+                                <input type="text" id="areaId" name="areaId" placeholder="Area / Locality"
+                                    class="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors">
+                            </div>
+                        </div>
+
+                        <!-- Identity -->
+                        <div class="space-y-2">
+                            <label for="adharCard" class="text-sm font-medium text-foreground">Aadhar Card Number</label>
+                            <input type="text" id="adharCard" name="adharCard" placeholder="XXXX XXXX XXXX" maxlength="14"
+                                class="w-full h-11 px-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors">
+                        </div>
+
+                        <!-- File Uploads -->
+                        <div class="pt-2">
+                            <p class="text-sm font-medium text-foreground mb-3">Upload Documents & Photos</p>
+                            <div class="grid sm:grid-cols-2 gap-4">
+                                <!-- Address Proof -->
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium text-foreground">Address Proof</label>
+                                    <label class="flex items-center gap-3 px-4 py-3 rounded-lg border border-input bg-background cursor-pointer hover:border-accent transition-colors">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground flex-shrink-0"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                        <span class="text-sm text-muted-foreground truncate file-label" data-field="addressProof">Choose file...</span>
+                                        <input type="file" accept="image/*" name="addressProof" class="hidden file-input">
+                                    </label>
+                                </div>
+                                <!-- Owner Photo -->
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium text-foreground">Owner Photo</label>
+                                    <label class="flex items-center gap-3 px-4 py-3 rounded-lg border border-input bg-background cursor-pointer hover:border-accent transition-colors">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground flex-shrink-0"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                        <span class="text-sm text-muted-foreground truncate file-label" data-field="ownerPhoto">Choose file...</span>
+                                        <input type="file" accept="image/*" name="ownerPhoto" class="hidden file-input">
+                                    </label>
+                                </div>
+                                <!-- Shop Photo -->
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium text-foreground">Shop Photo</label>
+                                    <label class="flex items-center gap-3 px-4 py-3 rounded-lg border border-input bg-background cursor-pointer hover:border-accent transition-colors">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground flex-shrink-0"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                        <span class="text-sm text-muted-foreground truncate file-label" data-field="shopPhoto">Choose file...</span>
+                                        <input type="file" accept="image/*" name="shopPhoto" class="hidden file-input">
+                                    </label>
+                                </div>
+                                <!-- Shop Logo -->
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium text-foreground">Shop Logo</label>
+                                    <label class="flex items-center gap-3 px-4 py-3 rounded-lg border border-input bg-background cursor-pointer hover:border-accent transition-colors">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground flex-shrink-0"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                        <span class="text-sm text-muted-foreground truncate file-label" data-field="shopLogo">Choose file...</span>
+                                        <input type="file" accept="image/*" name="shopLogo" class="hidden file-input">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <!-- Shop Banner -->
+                                <div class="space-y-2">
+                                    <label class="text-sm font-medium text-foreground">Shop Banner Photo</label>
+                                    <label class="flex items-center gap-3 px-4 py-3 rounded-lg border border-input bg-background cursor-pointer hover:border-accent transition-colors">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-muted-foreground flex-shrink-0"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                                        <span class="text-sm text-muted-foreground truncate file-label" data-field="shopBannerPhoto">Choose file...</span>
+                                        <input type="file" accept="image/*" name="shopBannerPhoto" class="hidden file-input">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit -->
+                        <button type="submit" id="submit-btn" class="btn btn-gold w-full flex items-center justify-center gap-2 py-3 rounded-lg font-semibold text-base">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                            Submit Application
+                        </button>
+
+                        <p class="text-xs text-muted-foreground text-center">
+                            By applying, you agree to our Terms of Service and Privacy Policy.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy py-16">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <div class="md:col-span-1">
+                    <a href="index.html" class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-r from-gold to-gold-light rounded-full flex items-center justify-center shadow-lg">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-primary">
+                                <circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 18 18"/>
+                            </svg>
+                        </div>
+                        <span class="font-display text-xl font-semibold text-primary-foreground">ThreadSync</span>
+                    </a>
+                    <p class="text-cream-dark/70 text-sm leading-relaxed">Connecting you with skilled tailors for perfect-fit clothing.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-primary-foreground mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="tailors.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Our Tailors</a></li>
+                        <li><a href="booking.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Book a Tailor</a></li>
+                        <li><a href="join-as-tailor.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Join as Tailor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-primary-foreground mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">About Us</a></li>
+                        <li><a href="faq.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">FAQ</a></li>
+                        <li><a href="contact.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-primary-foreground mb-4">Account</h4>
+                    <ul class="space-y-2">
+                        <li><a href="login.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Sign In</a></li>
+                        <li><a href="signup.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Sign Up</a></li>
+                        <li><a href="dashboard.html" class="text-cream-dark/70 hover:text-gold transition-colors text-sm">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-cream-dark/60 text-sm">© 2026 ThreadSync. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-cream-dark/60 hover:text-gold transition-colors text-sm">Facebook</a>
+                    <a href="#" class="text-cream-dark/60 hover:text-gold transition-colors text-sm">Instagram</a>
+                    <a href="#" class="text-cream-dark/60 hover:text-gold transition-colors text-sm">Twitter</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // File input labels
+        document.querySelectorAll('.file-input').forEach(input => {
+            input.addEventListener('change', function() {
+                const label = this.closest('label').querySelector('.file-label');
+                label.textContent = this.files[0] ? this.files[0].name : 'Choose file...';
+            });
+        });
+
+        // Form submission
+        document.getElementById('tailor-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.textContent = 'Submitting...';
+            btn.disabled = true;
+
+            // Simulate submission
+            setTimeout(() => {
+                alert('Application submitted! We\'ll review your application and get back to you within 48 hours.');
+                this.reset();
+                document.querySelectorAll('.file-label').forEach(l => l.textContent = 'Choose file...');
+                btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg> Submit Application';
+                btn.disabled = false;
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

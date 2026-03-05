@@ -344,7 +344,7 @@ img {
 }
 
 .logo-text {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
     color: hsl(var(--foreground));

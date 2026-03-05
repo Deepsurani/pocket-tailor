@@ -1970,7 +1970,7 @@ section {
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-weight: 500;
     color: hsl(var(--muted-foreground));
     cursor: pointer;

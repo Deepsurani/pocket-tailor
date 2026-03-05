@@ -902,7 +902,7 @@ section {
 }
 
 .service-price {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.125rem;
     font-weight: 600;
     color: hsl(var(--foreground));

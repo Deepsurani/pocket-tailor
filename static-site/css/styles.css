@@ -1219,7 +1219,7 @@ section {
     border: 1px solid hsl(var(--border));
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 1rem;
     transition: all 0.2s ease;
 }

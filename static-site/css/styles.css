@@ -558,7 +558,7 @@ img {
 }
 
 .stat-value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.875rem;
     font-weight: 700;
     color: hsl(var(--foreground));

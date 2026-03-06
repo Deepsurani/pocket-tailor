@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailor Dashboard - ThreadSync</title>
+    <meta name="description" content="Manage your tailoring services, orders, payments, and reports with ThreadSync Tailor Panel.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Montserrat', 'sans-serif'],
+                        sans: ['Source Sans 3', 'sans-serif'],
+                    },
+                    colors: {
+                        background: 'hsl(40, 30%, 97%)',
+                        foreground: 'hsl(220, 30%, 15%)',
+                        card: { DEFAULT: 'hsl(0, 0%, 100%)', foreground: 'hsl(220, 30%, 15%)' },
+                        primary: { DEFAULT: 'hsl(220, 40%, 20%)', foreground: 'hsl(40, 30%, 97%)' },
+                        secondary: { DEFAULT: 'hsl(40, 25%, 92%)', foreground: 'hsl(220, 30%, 15%)' },
+                        muted: { DEFAULT: 'hsl(40, 20%, 94%)', foreground: 'hsl(220, 15%, 45%)' },
+                        accent: { DEFAULT: 'hsl(38, 75%, 55%)', foreground: 'hsl(220, 40%, 15%)' },
+                        destructive: { DEFAULT: 'hsl(0, 84%, 60%)', foreground: 'hsl(0, 0%, 100%)' },
+                        border: 'hsl(40, 20%, 88%)',
+                        input: 'hsl(40, 20%, 88%)',
+                        gold: { DEFAULT: 'hsl(38, 75%, 55%)', light: 'hsl(40, 65%, 70%)' },
+                        navy: { DEFAULT: 'hsl(220, 40%, 20%)', light: 'hsl(220, 30%, 35%)' },
+                        cream: { DEFAULT: 'hsl(40, 30%, 97%)', dark: 'hsl(40, 25%, 92%)' },
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .sidebar-link.active { background: hsl(38, 75%, 55%); color: hsl(220, 40%, 15%); }
+        .sidebar-link:hover:not(.active) { background: hsl(40, 20%, 94%); }
+        .tailor-tab { display: none; }
+        .tailor-tab.active { display: block; }
+        .filter-btn.active { background: hsl(38, 75%, 55%); color: hsl(220, 40%, 15%); border-color: hsl(38, 75%, 55%); }
+        .service-form { display: none; }
+        .service-form.active { display: block; }
+    </style>
+</head>
+<body class="font-sans bg-background text-foreground">
+
+<div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed lg:static inset-y-0 left-0 z-50 w-64 bg-card border-r border-border flex flex-col -translate-x-full lg:translate-x-0 transition-transform duration-300">
+        <div class="p-6 border-b border-border flex items-center justify-between">
+            <div>
+                <h2 class="font-display text-lg font-bold text-foreground">ThreadSync</h2>
+                <p class="text-xs text-muted-foreground">Tailor Panel</p>
+            </div>
+            <button id="close-sidebar" class="lg:hidden p-1 rounded hover:bg-muted">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+        </div>
+        <nav class="flex-1 p-4 space-y-1">
+            <button data-tab="overview" class="sidebar-link active w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                Dashboard
+            </button>
+            <button data-tab="services" class="sidebar-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12L12 12"/><circle cx="18" cy="18" r="3"/><path d="M15.88 15.88L12 12"/></svg>
+                Create Services
+            </button>
+            <button data-tab="orders" class="sidebar-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Orders & Booking
+            </button>
+            <button data-tab="payment" class="sidebar-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                Payment
+            </button>
+            <button data-tab="reports" class="sidebar-link w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                Reports
+            </button>
+        </nav>
+        <div class="p-4 border-t border-border">
+            <a href="login.html" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-muted-foreground hover:text-destructive transition-all">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 min-w-0">
+        <!-- Top bar -->
+        <header class="sticky top-0 z-30 bg-card/80 backdrop-blur-sm border-b border-border px-4 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <button id="open-sidebar" class="lg:hidden p-2 rounded-lg hover:bg-muted">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+                </button>
+                <h1 id="page-title" class="font-display text-xl font-bold text-foreground">Dashboard</h1>
+            </div>
+            <div class="w-9 h-9 rounded-full bg-accent flex items-center justify-center text-accent-foreground font-bold text-sm">T</div>
+        </header>
+
+        <div class="p-4 lg:p-8">
+
+            <!-- ===== OVERVIEW TAB ===== -->
+            <div id="tab-overview" class="tailor-tab active">
+                <!-- Stats -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Total Services</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">12</p>
+                                <p class="text-xs text-muted-foreground mt-1">+2 this month</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12L12 12"/><circle cx="18" cy="18" r="3"/><path d="M15.88 15.88L12 12"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Active Orders</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">8</p>
+                                <p class="text-xs text-muted-foreground mt-1">3 pending</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Revenue</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">₹24,500</p>
+                                <p class="text-xs text-muted-foreground mt-1">+18% vs last month</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Completed</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">156</p>
+                                <p class="text-xs text-muted-foreground mt-1">All time</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Orders Table -->
+                <div class="bg-card rounded-xl border border-border">
+                    <div class="p-5 border-b border-border">
+                        <h3 class="font-display text-lg font-semibold text-foreground">Recent Orders</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Order ID</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Customer</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Service</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Status</th>
+                                    <th class="text-right py-3 px-4 text-muted-foreground font-medium">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">ORD-001</td>
+                                    <td class="py-3 px-4 text-foreground">Rahul Sharma</td>
+                                    <td class="py-3 px-4 text-muted-foreground">Custom Suit</td>
+                                    <td class="py-3 px-4"><span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">In Progress</span></td>
+                                    <td class="py-3 px-4 text-right font-medium text-foreground">₹4,500</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">ORD-002</td>
+                                    <td class="py-3 px-4 text-foreground">Priya Patel</td>
+                                    <td class="py-3 px-4 text-muted-foreground">Blouse Stitching</td>
+                                    <td class="py-3 px-4"><span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Pending</span></td>
+                                    <td class="py-3 px-4 text-right font-medium text-foreground">₹1,200</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium text-foreground">ORD-003</td>
+                                    <td class="py-3 px-4 text-foreground">Amit Kumar</td>
+                                    <td class="py-3 px-4 text-muted-foreground">Alteration</td>
+                                    <td class="py-3 px-4"><span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">Completed</span></td>
+                                    <td class="py-3 px-4 text-right font-medium text-foreground">₹800</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== CREATE SERVICES TAB ===== -->
+            <div id="tab-services" class="tailor-tab">
+                <div class="flex items-center justify-between mb-6">
+                    <p class="text-muted-foreground">Manage the services you offer to customers.</p>
+                    <button id="add-service-btn" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        Add Service
+                    </button>
+                </div>
+
+                <!-- Service Form -->
+                <div id="service-form-card" class="service-form bg-card rounded-xl border border-accent/30 mb-6">
+                    <div class="p-5 border-b border-border">
+                        <h3 id="service-form-title" class="font-display text-lg font-semibold text-foreground">New Service</h3>
+                    </div>
+                    <div class="p-5">
+                        <form id="service-form" class="grid sm:grid-cols-2 gap-4">
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-foreground">Service Name *</label>
+                                <input id="svc-name" type="text" placeholder="e.g. Custom Suit" class="w-full px-3 py-2 rounded-lg border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-foreground">Price (₹) *</label>
+                                <input id="svc-price" type="number" placeholder="e.g. 4500" class="w-full px-3 py-2 rounded-lg border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-medium text-foreground">Duration</label>
+                                <input id="svc-duration" type="text" placeholder="e.g. 7 days" class="w-full px-3 py-2 rounded-lg border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="space-y-2 sm:col-span-2">
+                                <label class="text-sm font-medium text-foreground">Description</label>
+                                <textarea id="svc-desc" rows="3" placeholder="Describe the service..." class="w-full px-3 py-2 rounded-lg border border-input bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent resize-none"></textarea>
+                            </div>
+                            <div class="sm:col-span-2 flex gap-3">
+                                <button type="submit" class="px-4 py-2 rounded-lg bg-accent text-accent-foreground text-sm font-medium hover:bg-accent/90 transition">Create Service</button>
+                                <button type="button" id="cancel-service" class="px-4 py-2 rounded-lg border border-border text-sm font-medium text-foreground hover:bg-muted transition">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Services Grid -->
+                <div id="services-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-card rounded-xl border border-border p-5" data-id="1">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="font-display font-semibold text-foreground">Custom Suit</h3>
+                            <div class="flex gap-1">
+                                <button class="edit-svc p-1.5 rounded hover:bg-muted"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                <button class="del-svc p-1.5 rounded hover:bg-muted text-destructive"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-3">Full custom suit tailoring with premium fabric</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="font-bold text-foreground">₹4,500</span>
+                            <span class="text-muted-foreground">7 days</span>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5" data-id="2">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="font-display font-semibold text-foreground">Blouse Stitching</h3>
+                            <div class="flex gap-1">
+                                <button class="edit-svc p-1.5 rounded hover:bg-muted"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                <button class="del-svc p-1.5 rounded hover:bg-muted text-destructive"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-3">Custom blouse with designer patterns</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="font-bold text-foreground">₹1,200</span>
+                            <span class="text-muted-foreground">3 days</span>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5" data-id="3">
+                        <div class="flex items-start justify-between mb-3">
+                            <h3 class="font-display font-semibold text-foreground">Alteration</h3>
+                            <div class="flex gap-1">
+                                <button class="edit-svc p-1.5 rounded hover:bg-muted"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                                <button class="del-svc p-1.5 rounded hover:bg-muted text-destructive"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-muted-foreground mb-3">Garment alteration and fitting adjustments</p>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="font-bold text-foreground">₹500</span>
+                            <span class="text-muted-foreground">1 day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== ORDERS & BOOKING TAB ===== -->
+            <div id="tab-orders" class="tailor-tab">
+                <p class="text-muted-foreground mb-6">View and manage customer orders and bookings.</p>
+
+                <!-- Filters -->
+                <div class="flex gap-2 flex-wrap mb-6">
+                    <button class="filter-btn active px-3 py-1.5 rounded-lg border border-border text-sm font-medium transition" data-filter="all">All</button>
+                    <button class="filter-btn px-3 py-1.5 rounded-lg border border-border text-sm font-medium text-muted-foreground transition" data-filter="pending">Pending</button>
+                    <button class="filter-btn px-3 py-1.5 rounded-lg border border-border text-sm font-medium text-muted-foreground transition" data-filter="in_progress">In Progress</button>
+                    <button class="filter-btn px-3 py-1.5 rounded-lg border border-border text-sm font-medium text-muted-foreground transition" data-filter="completed">Completed</button>
+                </div>
+
+                <!-- Orders List -->
+                <div id="orders-list" class="space-y-3">
+                    <div class="order-card bg-card rounded-xl border border-border p-4 sm:p-5" data-status="in_progress">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-display font-semibold text-foreground">ORD-001</span>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-700">In Progress</span>
+                                </div>
+                                <p class="text-sm text-foreground">Rahul Sharma — <span class="text-muted-foreground">Custom Suit</span></p>
+                                <p class="text-xs text-muted-foreground mt-1">Booked: 2026-03-01 · Phone: 9876543210</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="font-display font-bold text-foreground">₹4,500</span>
+                                <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border text-sm font-medium hover:bg-muted transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card bg-card rounded-xl border border-border p-4 sm:p-5" data-status="pending">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-display font-semibold text-foreground">ORD-002</span>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Pending</span>
+                                </div>
+                                <p class="text-sm text-foreground">Priya Patel — <span class="text-muted-foreground">Blouse Stitching</span></p>
+                                <p class="text-xs text-muted-foreground mt-1">Booked: 2026-03-03 · Phone: 9876543211</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="font-display font-bold text-foreground">₹1,200</span>
+                                <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border text-sm font-medium hover:bg-muted transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card bg-card rounded-xl border border-border p-4 sm:p-5" data-status="completed">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-display font-semibold text-foreground">ORD-003</span>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">Completed</span>
+                                </div>
+                                <p class="text-sm text-foreground">Amit Kumar — <span class="text-muted-foreground">Alteration</span></p>
+                                <p class="text-xs text-muted-foreground mt-1">Booked: 2026-02-28 · Phone: 9876543212</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="font-display font-bold text-foreground">₹800</span>
+                                <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border text-sm font-medium hover:bg-muted transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card bg-card rounded-xl border border-border p-4 sm:p-5" data-status="pending">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-display font-semibold text-foreground">ORD-004</span>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-700">Pending</span>
+                                </div>
+                                <p class="text-sm text-foreground">Sneha Reddy — <span class="text-muted-foreground">Lehenga</span></p>
+                                <p class="text-xs text-muted-foreground mt-1">Booked: 2026-03-05 · Phone: 9876543213</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="font-display font-bold text-foreground">₹8,000</span>
+                                <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border text-sm font-medium hover:bg-muted transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-card bg-card rounded-xl border border-border p-4 sm:p-5" data-status="completed">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <div class="flex-1">
+                                <div class="flex items-center gap-2 mb-1">
+                                    <span class="font-display font-semibold text-foreground">ORD-005</span>
+                                    <span class="inline-block px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">Completed</span>
+                                </div>
+                                <p class="text-sm text-foreground">Vikram Singh — <span class="text-muted-foreground">Sherwani</span></p>
+                                <p class="text-xs text-muted-foreground mt-1">Booked: 2026-02-25 · Phone: 9876543214</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="font-display font-bold text-foreground">₹6,500</span>
+                                <button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border text-sm font-medium hover:bg-muted transition">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== PAYMENT TAB ===== -->
+            <div id="tab-payment" class="tailor-tab">
+                <p class="text-muted-foreground mb-6">Track your earnings and payment history.</p>
+
+                <!-- Summary Cards -->
+                <div class="grid sm:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted-foreground">Total Earnings</p>
+                                <p class="text-xl font-display font-bold text-foreground">₹24,500</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 010-4h14v4"/><path d="M3 5v14a2 2 0 002 2h16v-5"/><path d="M18 12a2 2 0 000 4h4v-4h-4z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted-foreground">Pending Payout</p>
+                                <p class="text-xl font-display font-bold text-foreground">₹9,200</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><line x1="7" y1="7" x2="17" y2="17"/><polyline points="17 7 17 17 7 17"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-muted-foreground">Platform Fees</p>
+                                <p class="text-xl font-display font-bold text-foreground">₹1,470</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div class="bg-card rounded-xl border border-border">
+                    <div class="p-5 border-b border-border">
+                        <h3 class="font-display text-lg font-semibold text-foreground">Transaction History</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">ID</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Description</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Date</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Method</th>
+                                    <th class="text-right py-3 px-4 text-muted-foreground font-medium">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">TXN-001</td>
+                                    <td class="py-3 px-4 text-foreground">↗ Rahul Sharma</td>
+                                    <td class="py-3 px-4 text-muted-foreground">2026-03-01</td>
+                                    <td class="py-3 px-4 text-muted-foreground">UPI</td>
+                                    <td class="py-3 px-4 text-right font-medium text-green-600">+₹4,500</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">TXN-002</td>
+                                    <td class="py-3 px-4 text-foreground">↗ Priya Patel</td>
+                                    <td class="py-3 px-4 text-muted-foreground">2026-03-03</td>
+                                    <td class="py-3 px-4 text-muted-foreground">Cash</td>
+                                    <td class="py-3 px-4 text-right font-medium text-green-600">+₹1,200</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">TXN-003</td>
+                                    <td class="py-3 px-4 text-foreground">↘ Platform Fee</td>
+                                    <td class="py-3 px-4 text-muted-foreground">2026-03-05</td>
+                                    <td class="py-3 px-4 text-muted-foreground">Auto</td>
+                                    <td class="py-3 px-4 text-right font-medium text-red-600">-₹570</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">TXN-004</td>
+                                    <td class="py-3 px-4 text-foreground">↗ Amit Kumar</td>
+                                    <td class="py-3 px-4 text-muted-foreground">2026-02-28</td>
+                                    <td class="py-3 px-4 text-muted-foreground">Card</td>
+                                    <td class="py-3 px-4 text-right font-medium text-green-600">+₹800</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium text-foreground">TXN-005</td>
+                                    <td class="py-3 px-4 text-foreground">↗ Sneha Reddy</td>
+                                    <td class="py-3 px-4 text-muted-foreground">2026-03-05</td>
+                                    <td class="py-3 px-4 text-muted-foreground">UPI</td>
+                                    <td class="py-3 px-4 text-right font-medium text-green-600">+₹8,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== REPORTS TAB ===== -->
+            <div id="tab-reports" class="tailor-tab">
+                <p class="text-muted-foreground mb-6">View your performance reports and analytics.</p>
+
+                <!-- Key Metrics -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Avg. Rating</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">4.8</p>
+                                <p class="text-xs text-muted-foreground mt-1">Based on 156 reviews</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Repeat Customers</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">64%</p>
+                                <p class="text-xs text-muted-foreground mt-1">Last 3 months</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Growth</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">+18%</p>
+                                <p class="text-xs text-muted-foreground mt-1">vs last month</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-card rounded-xl border border-border p-5">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <p class="text-sm text-muted-foreground">Avg. Delivery</p>
+                                <p class="text-2xl font-display font-bold text-foreground mt-1">4.2 days</p>
+                                <p class="text-xs text-muted-foreground mt-1">Order completion</p>
+                            </div>
+                            <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Summary -->
+                <div class="bg-card rounded-xl border border-border mb-6">
+                    <div class="p-5 border-b border-border">
+                        <h3 class="font-display text-lg font-semibold text-foreground">Monthly Summary</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-border">
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Month</th>
+                                    <th class="text-left py-3 px-4 text-muted-foreground font-medium">Orders</th>
+                                    <th class="text-right py-3 px-4 text-muted-foreground font-medium">Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">Jan 2026</td>
+                                    <td class="py-3 px-4 text-foreground">12</td>
+                                    <td class="py-3 px-4 text-right font-medium text-foreground">₹18,000</td>
+                                </tr>
+                                <tr class="border-b border-border">
+                                    <td class="py-3 px-4 font-medium text-foreground">Feb 2026</td>
+                                    <td class="py-3 px-4 text-foreground">18</td>
+                                    <td class="py-3 px-4 text-right font-medium text-foreground">₹24,500</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 px-4 font-medium text-foreground">Mar 2026</td>
+                                    <td class="py-3 px-4 text-foreground">8</td>
+                                    <td class="py-3 px-4 text-right font-medium text-foreground">₹14,500</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top Services -->
+                <div class="bg-card rounded-xl border border-border">
+                    <div class="p-5 border-b border-border">
+                        <h3 class="font-display text-lg font-semibold text-foreground">Top Services</h3>
+                    </div>
+                    <div class="p-5 space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between text-sm mb-1">
+                                <span class="text-foreground font-medium">Custom Suit</span>
+                                <span class="text-muted-foreground">45 orders</span>
+                            </div>
+                            <div class="h-2 bg-muted rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full" style="width: 75%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-sm mb-1">
+                                <span class="text-foreground font-medium">Blouse Stitching</span>
+                                <span class="text-muted-foreground">32 orders</span>
+                            </div>
+                            <div class="h-2 bg-muted rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full" style="width: 53%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-sm mb-1">
+                                <span class="text-foreground font-medium">Alteration</span>
+                                <span class="text-muted-foreground">28 orders</span>
+                            </div>
+                            <div class="h-2 bg-muted rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full" style="width: 47%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-sm mb-1">
+                                <span class="text-foreground font-medium">Sherwani</span>
+                                <span class="text-muted-foreground">15 orders</span>
+                            </div>
+                            <div class="h-2 bg-muted rounded-full overflow-hidden"><div class="h-full bg-accent rounded-full" style="width: 25%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast hidden fixed bottom-6 right-6 px-4 py-3 rounded-lg text-sm font-medium shadow-lg z-[100] bg-foreground text-background transition-all"></div>
+
+<script src="js/tailor-dashboard.js"></script>
+</body>
+</html>

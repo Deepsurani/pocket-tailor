@@ -41,6 +41,7 @@ const App = () => (
           <Route path="/booking" element={<Booking />} />
           <Route path="/dashboard" element={<CustomerDashboard />} />
           <Route path="/join-as-tailor" element={<JoinAsTailor />} />
+          <Route path="/tailor-dashboard" element={<TailorDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -17,6 +17,7 @@ import Booking from "./pages/Booking";
 import CustomerDashboard from "./pages/CustomerDashboard";
 import NotFound from "./pages/NotFound";
 import JoinAsTailor from "./pages/JoinAsTailor";
+import TailorDashboard from "./pages/tailor/TailorDashboard";
 
 const queryClient = new QueryClient();
 
